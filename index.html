@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+  <script>try{var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Iwan Setiawan — Hybrid Cloud & Platform Architect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,9 +19,43 @@
     --accent2: #ff6b35;
     --accent3: #7fff6b;
     --text: #cdd8e0;
-    --text-muted: #5a7a8a;
-    --text-dim: #3a5060;
+    --text-muted: #95b5c5;
+    --text-dim: #adb1b4;
     --white: #eef4f7;
+  }
+
+  [data-theme="light"] {
+    --bg: #f5f7fa;
+    --surface: #ffffff;
+    --surface2: #eef2f7;
+    --border: #d0dce8;
+    --border2: #b8ccd8;
+    --accent: #0e646e;
+    --accent2: #cc4a1a;
+    --accent3: #2e7d32;
+    --text: #2d3e4a;
+    --text-muted: #5a7a8a;
+    --text-dim: #90a4ae;
+    --white: #0d1318;
+  }
+
+
+
+  [data-theme="light"] .hero-glow {
+    background: radial-gradient(circle, rgba(0,109,153,0.08) 0%, transparent 70%);
+  }
+
+  [data-theme="light"] .hero-glow2 {
+    background: radial-gradient(circle, rgba(204,74,26,0.06) 0%, transparent 70%);
+  }
+
+  [data-theme="light"] .terminal-badge {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+
+  [data-theme="light"] .photo-frame {
+    border-color: var(--border2);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -72,7 +107,7 @@
     font-family: 'Syne', sans-serif;
     font-weight: 800;
     font-size: 16px;
-    color: var(--white);
+    color: #eef4f7;
     letter-spacing: 0.02em;
   }
 
@@ -93,7 +128,7 @@
     transition: color 0.2s;
   }
 
-  .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover { color: #00e5ff; }
 
   .nav-cta {
     background: transparent;
@@ -131,7 +166,7 @@
       linear-gradient(var(--border) 1px, transparent 1px),
       linear-gradient(90deg, var(--border) 1px, transparent 1px);
     background-size: 60px 60px;
-    opacity: 0.3;
+    opacity: 0.7;
     mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
   }
 
@@ -196,7 +231,7 @@
 
   .hero-name .line2 {
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255,255,255,0.25);
+    -webkit-text-stroke: 1px var(--accent);
   }
 
   .hero-title {
@@ -212,6 +247,7 @@
 
   .hero-desc {
     font-size: 14px;
+    font-weight: 500;
     color: var(--text);
     max-width: 560px;
     line-height: 1.8;
@@ -877,8 +913,8 @@
   .contact-email {
     display: block;
     font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(24px, 5vw, 48px);
+    font-weight: 700;
+    font-size: clamp(24px, 5vw, 40px);
     color: var(--white);
     text-decoration: none;
     letter-spacing: -0.02em;
@@ -948,6 +984,52 @@
     transform: translateY(0);
   }
 
+  /* THEME TOGGLE */
+  .theme-toggle {
+    background: transparent;
+    border: 1px solid var(--border2);
+    color: var(--text-muted);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s;
+    margin-right: 8px;
+  }
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    background: rgba(0,229,255,0.05);
+  }
+
+  /* PHOTO */
+  .photo-frame {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--border2);
+    flex-shrink: 0;
+    position: relative;
+  }
+  .photo-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    opacity: 0.4;
+  }
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(15%);
+  }
+
   /* RESPONSIVE */
   @media (max-width: 1024px) {
     nav { padding: 20px 32px; }
@@ -990,6 +1072,9 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" onclick="(function(){var d=document.documentElement,t=d.getAttribute('data-theme')==='light'?'dark':'light';d.setAttribute('data-theme',t);document.getElementById('toggleIcon').textContent=t==='light'?'🌙':'☀️';try{localStorage.setItem('theme',t);}catch(e){}})()">
+    <span id="toggleIcon">☀️</span>
+  </button>
   <a href="mailto:ione.houten@gmail.com" class="nav-cta">Hire Me</a>
 </nav>
 
@@ -999,7 +1084,11 @@
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
 
-  <div class="hero-content">
+  <div class="hero-inner" style="display:flex; align-items:flex-start; gap:48px; position:relative; z-index:2;">
+    <div class="photo-frame" style="opacity:0; animation: fadeUp 0.6s ease 0.2s forwards; margin-top:12px;">
+      <img src="https://ionehouten.github.io/images/pp.jpg" alt="Iwan Setiawan">
+    </div>
+  <div class="hero-content" style="position:static;">
     <div class="hero-label">Available for projects · Bandung, Indonesia</div>
     <h1 class="hero-name">
       Iwan<br>
@@ -1017,12 +1106,12 @@
         <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat">
-        <div class="stat-num"><span class="accent2">85</span>%</div>
+        <div class="stat-num"><span class="accent2">~85</span>%</div>
         <div class="stat-label">Max Cost Reduction</div>
       </div>
       <div class="stat">
-        <div class="stat-num"><span class="accent3">99.9</span>%</div>
-        <div class="stat-label">Uptime Maintained</div>
+        <div class="stat-num"><span class="accent3">High</span></div>
+        <div class="stat-label">Availability Architecture</div>
       </div>
     </div>
     <div class="hero-actions">
@@ -1030,6 +1119,7 @@
       <a href="#contact" class="btn-ghost">Get in Touch</a>
     </div>
   </div>
+  </div><!-- /hero-inner -->
 
   <div class="hero-right">
     <div class="terminal-badge">
@@ -1223,7 +1313,7 @@
       <div class="pc-year">2024</div>
       <div class="pc-client">Indonesia 2024 Election · PT KTM</div>
       <div class="pc-title">Real-Time Election Tabulation System</div>
-      <div class="pc-result green">Thousands of TPS · Real-Time Aggregation</div>
+      <div class="pc-result green">Real-Time Aggregation</div>
       <p class="pc-desc">High-concurrency backend in Golang handling simultaneous data submissions from thousands of polling stations with real-time result aggregation.</p>
       <div class="pc-tags">
         <span class="tag">Golang</span>
@@ -1277,11 +1367,11 @@
         <div class="sg-title">Cloud Platforms</div>
       </div>
       <div class="sg-items">
-        <span class="sg-item">AWS (Primary)</span>
-        <span class="sg-item">GCP (Primary)</span>
-        <span class="sg-item">OCI (Primary)</span>
+        <span class="sg-item">AWS</span>
+        <span class="sg-item">GCP</span>
+        <span class="sg-item">OCI</span>
         <span class="sg-item">Azure (Supporting)</span>
-        <span class="sg-item">Bare Metal</span>
+        <span class="sg-item">Bare Metal (KVM / QEMU Virtualization)</span>
       </div>
     </div>
     <div class="stack-group">
@@ -1291,12 +1381,12 @@
       </div>
       <div class="sg-items">
         <span class="sg-item">Kubernetes</span>
-        <span class="sg-item">AWS EKS</span>
-        <span class="sg-item">GKE</span>
-        <span class="sg-item">K3s</span>
         <span class="sg-item">Docker</span>
         <span class="sg-item">Docker Swarm</span>
+        <span class="sg-item">AWS EKS</span>
         <span class="sg-item">AWS ECS</span>
+        <span class="sg-item">GKE</span>
+        <span class="sg-item">K3s</span>
       </div>
     </div>
     <div class="stack-group">
@@ -1321,7 +1411,6 @@
         <span class="sg-item">GitLab CI</span>
         <span class="sg-item">Jenkins</span>
         <span class="sg-item">ArgoCD</span>
-        <span class="sg-item">Azure DevOps</span>
       </div>
     </div>
     <div class="stack-group">
@@ -1334,20 +1423,36 @@
         <span class="sg-item">Grafana</span>
         <span class="sg-item">Loki</span>
         <span class="sg-item">ELK Stack</span>
-        <span class="sg-item">SonarQube</span>
+        
       </div>
     </div>
     <div class="stack-group">
       <div class="sg-header">
         <span class="sg-icon">🔐</span>
-        <div class="sg-title">Security & Networking</div>
+        <div class="sg-title">DevSecOps & Governance</div>
       </div>
       <div class="sg-items">
         <span class="sg-item">Cloudflare Zero Trust</span>
         <span class="sg-item">ZeroTier SD-WAN</span>
         <span class="sg-item">Site-to-Site VPN</span>
+        <span class="sg-item">WAF</span>
         <span class="sg-item">HashiCorp Vault</span>
-        <span class="sg-item">AWS WAF & Shield</span>
+        <span class="sg-item">SonarQube</span>
+        <span class="sg-item">SAST / Dependency Scanning</span>
+        
+      </div>
+    </div>
+    <div class="stack-group">
+      <div class="sg-header">
+        <span class="sg-icon">⚡</span>
+        <div class="sg-title">Performance & Benchmarking</div>
+      </div>
+      <div class="sg-items">
+        <span class="sg-item">JMeter</span>
+        <span class="sg-item">FIO (Storage Benchmark)</span>
+        <span class="sg-item">pgbench (PostgreSQL)</span>
+        <span class="sg-item">Redis Benchmark</span>
+        <span class="sg-item">Bare-metal & KVM tuning (CPU pinning, hugepages, NUMA)</span>
       </div>
     </div>
   </div>
@@ -1442,7 +1547,7 @@
   <h2 class="section-title">Certifications</h2>
   <div class="certs-row reveal">
     <div class="cert-card">
-      <div class="cert-badge">☁️</div>
+      <div class="cert-badge">🎖️</div>
       <div class="cert-name">AWS Certified Cloud Practitioner</div>
       <div class="cert-meta">Amazon Web Services</div>
       <div class="cert-valid">Valid 2024 – 2027</div>
@@ -1450,13 +1555,13 @@
     <div class="cert-card">
       <div class="cert-badge">⚙️</div>
       <div class="cert-name">AWS Advanced Training</div>
-      <div class="cert-meta">Kubernetes · Data Engineering · Serverless Architectures</div>
+      <div class="cert-meta">Cloud Computing · EKS · Serverless Architectures</div>
       <div class="cert-valid">Completed</div>
     </div>
     <div class="cert-card">
       <div class="cert-badge">🔵</div>
-      <div class="cert-name">Google Cloud Advanced Training</div>
-      <div class="cert-meta">Kubernetes · Cloud Architecture</div>
+      <div class="cert-name">Google Cloud Training</div>
+      <div class="cert-meta">Data Engineering</div>
       <div class="cert-valid">Completed</div>
     </div>
   </div>
@@ -1470,16 +1575,16 @@
     <div class="section-label" style="justify-content: center; margin-bottom: 32px;">Let's Work Together</div>
     <h2 class="section-title" style="font-size: clamp(28px, 5vw, 48px); margin-bottom: 24px;">Got an infrastructure<br>challenge?</h2>
     <p class="contact-tagline">From cost optimization to hybrid cloud architecture — let's build something that lasts.</p>
-    <a href="mailto:ione.houten@gmail.com" class="contact-email">ione.houten@gmail.com</a>
+    <a href="mailto:ione.houten@gmail.com" class="contact-email"><span class="__cf_email__" data-cfemail="">[ione.houten@gmail.com]</span></a>
     <div class="contact-links">
       <a href="https://linkedin.com/in/ionehouten" target="_blank" class="contact-link">
-        <span>↗</span> LinkedIn
+        <span>🔗</span> LinkedIn
       </a>
       <a href="https://github.com/ionehouten" target="_blank" class="contact-link">
-        <span>↗</span> GitHub
+        <span>👨‍💻</span> GitHub
       </a>
       <a href="https://credly.com/users/ione.houten" target="_blank" class="contact-link">
-        <span>↗</span> Credly
+        <span>🏅</span> Credly
       </a>
       <a href="tel:+6282217173862" class="contact-link">
         <span>📞</span> +62-822-1717-3862
@@ -1512,6 +1617,14 @@
   }, { threshold: 0.1 });
 
   reveals.forEach(el => observer.observe(el));
+
+  // Theme toggle - restore saved preference
+  try {
+    const saved = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', saved);
+    const icon = document.getElementById('toggleIcon');
+    if (icon) icon.textContent = saved === 'light' ? '🌙' : '☀️';
+  } catch(e) {}
 
   // Nav active state
   const sections = document.querySelectorAll('section[id]');
