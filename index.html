@@ -21,7 +21,7 @@
     --accent2: #ff6b35;
     --accent3: #7fff6b;
     --text: #cdd8e0;
-    --text-muted: #95b5c5;
+    --text-muted: #b7cfdb;
     --text-dim: #adb1b4;
     --white: #eef4f7;
   }
@@ -483,14 +483,15 @@
   .ec-title {
     font-family: 'Syne', sans-serif;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--white);
     margin-bottom: 8px;
     letter-spacing: 0.01em;
   }
 
   .ec-desc {
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 500;
     color: var(--text-muted);
     line-height: 1.6;
   }
@@ -576,7 +577,8 @@
   }
 
   .pc-desc {
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 500;
     color: var(--text-muted);
     line-height: 1.7;
     margin-bottom: 24px;
@@ -1032,6 +1034,62 @@
     filter: grayscale(15%);
   }
 
+  /* LIVE STATS */
+  .live-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 229, 255, 0.03);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent3);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 10px var(--accent3);
+  }
+
+  /* Animasi Ring */
+  .status-dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid var(--accent3);
+    animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(0.5); opacity: 0.8; }
+    80%, 100% { transform: scale(2.5); opacity: 0; }
+  }
+
+  .status-text {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+  }
+
+  .status-text span {
+    color: var(--accent3);
+    font-weight: 600;
+  }
+
+  .metric-mini {
+    border-left: 1px solid var(--border);
+    padding-left: 12px;
+    margin-left: 4px;
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
   /* RESPONSIVE */
   @media (max-width: 1024px) {
     nav { padding: 20px 32px; }
@@ -1091,6 +1149,13 @@
       <img src="./images/pp.jpg" alt="Iwan Setiawan">
     </div>
   <div class="hero-content" style="position:static;">
+    <div class="live-status">
+      <div class="status-dot"></div>
+      <div class="status-text">System: <span>Operational</span></div>
+      <div class="metric-mini" id="live-latency">Latency: 24ms</div>
+      <div class="metric-mini">Uptime: 99.99%</div>
+    </div>
+    <div class="divider"></div>
     <div class="hero-label">Let’s Work Together · Bandung, Indonesia</div>
     <h1 class="hero-name">
       Iwan<br>
@@ -1108,8 +1173,8 @@
         <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat">
-        <div class="stat-num"><span class="accent2">~85</span>%</div>
-        <div class="stat-label">OPEX Reduction</div>
+        <div class="stat-num"><span class="accent2">30–85</span>%</div>
+        <div class="stat-label">OPEX Reduction: 30–85% depending on project scope</div>
       </div>
       <div class="stat">
         <div class="stat-num"><span class="accent3">High</span></div>
@@ -1158,16 +1223,48 @@
         <div class="tb-title">cloud-stack.yml</div>
       </div>
       <div class="terminal-line">
-        <span class="out">platforms: AWS · GCP · OCI · Azure</span>
+        <span class="out">platforms:</span>
+        <p class="out orange">&nbsp;&nbsp;- AWS</p>
+        <p class="out orange">&nbsp;&nbsp;- GCP</p>
+        <p class="out orange">&nbsp;&nbsp;- OCI</p>
+        <p class="out orange">&nbsp;&nbsp;- Azure (Supporting)</p>
+        <p class="out orange">&nbsp;&nbsp;- Bare Metal (KVM / QEMU)</p>
       </div>
       <div class="terminal-line">
-        <span class="out">k8s: EKS · GKE · K3s · Bare Metal</span>
+        <span class="out">orchestration: </span>
+        <p class="out orange">&nbsp;&nbsp;- Kubernetes</p>
+        <p class="out orange">&nbsp;&nbsp;- Docker Swarm</p>
+        <p class="out orange">&nbsp;&nbsp;- EKS</p>
+        <p class="out orange">&nbsp;&nbsp;- GKE</p>
+        <p class="out orange">&nbsp;&nbsp;- K3s</p>
       </div>
       <div class="terminal-line">
-        <span class="out">iac: Terraform · Ansible · Kustomize</span>
+        <span class="out">iac:</span>
+        <p class="out orange">&nbsp;&nbsp;- Terraform</p>
+        <p class="out orange">&nbsp;&nbsp;- Ansible</p>
+        <p class="out orange">&nbsp;&nbsp;- Kustomzie</p>
       </div>
       <div class="terminal-line">
-        <span class="out">sec: Zero Trust · Site-to-Site VPN</span>
+        <span class="out">cicd:</span>
+        <p class="out orange">&nbsp;&nbsp;- Github Actions</p>
+        <p class="out orange">&nbsp;&nbsp;- Gitlab</p>
+        <p class="out orange">&nbsp;&nbsp;- Jenkins</p>
+      </div>
+      <div class="terminal-line">
+        <span class="out">sec: </span>
+        <p class="out orange">&nbsp;&nbsp;- Cloudflare Zero Trust</p>
+        <p class="out orange">&nbsp;&nbsp;- Zerotier</p>
+        <p class="out orange">&nbsp;&nbsp;- Site-to-Site VPN</p>
+      </div>
+      <div class="terminal-line">
+        <span class="out">observability: </span>
+        <p class="out orange">&nbsp;&nbsp;- Prometheus | Grafana | Loki</p>
+        <p class="out orange">&nbsp;&nbsp;- ELK</p>
+      </div>
+      <div class="terminal-line">
+        <span class="out">programming: </span>
+        <p class="out orange">&nbsp;&nbsp;- C#, Golang, Python</p>
+        <p class="out orange">&nbsp;&nbsp;- Bash</p>
       </div>
     </div>
   </div>
@@ -1236,7 +1333,7 @@
       <div class="pc-client">Haus! Indonesia · PT Inspirasi Bisnis Nusantara</div>
       <div class="pc-title">Hybrid Cloud Cost Transformation</div>
       <div class="pc-result orange">↓ 85% OPEX Reduction</div>
-      <p class="pc-desc">A fast-growing F&B chain was overspending on cloud by 3x. Led phased optimization — first cutting AWS costs by 32%, then engineering a full migration to bare metal Kubernetes. Implemented Cloudflare Zero Trust to eliminate public management exposure. Result: 85% OPEX savings with 99.9% uptime maintained.</p>
+      <p class="pc-desc">A fast-growing F&B chain was overspending on cloud by 3x. Led phased optimization — first cutting AWS costs by 32%, then engineering a full migration to bare metal Kubernetes. Implemented Cloudflare Zero Trust to eliminate public management exposure. Result: 85% OPEX savings.</p>
       <div class="pc-tags">
         <span class="tag">AWS</span>
         <span class="tag">Bare Metal</span>
@@ -1252,8 +1349,8 @@
       <div class="pc-year">2025</div>
       <div class="pc-client">RSMH Palembang · PT Medxa</div>
       <div class="pc-title">Hospital-Critical Hybrid Cloud Infrastructure</div>
-      <div class="pc-result">Dual VPN Redundancy · Zero Downtime DR</div>
-      <p class="pc-desc">Designed and delivered end-to-end hybrid cloud architecture for a major hospital's management system (SIMRS). Established secure dual Site-to-Site VPN with ZeroTier SD-WAN for management failover. Engineered disaster recovery for critical healthcare data. Built comprehensive monitoring for DB sessions, CPU, memory, and application health.</p>
+      <div class="pc-result">Hybrid Connectivity: Site-to-Site VPN & Secure Remote Access with ZeroTier</div>
+      <p class="pc-desc">Designed and implemented a comprehensive end-to-end hybrid cloud architecture for a major hospital’s management system (SIMRS). Established secure dual Site-to-Site VPN connections between on-premises and cloud environments, complemented by ZeroTier SD-WAN to facilitate remote access for developers and infrastructure teams with failover capabilities. Engineered a robust disaster recovery solution to ensure zero downtime for critical healthcare data. Developed comprehensive monitoring covering database sessions, CPU usage, memory utilization, and overall application health.</p>
       <div class="pc-tags">
         <span class="tag">OCI</span>
         <span class="tag">Bare Metal</span>
@@ -1605,6 +1702,13 @@
 </footer>
 
 <script>
+  // Script simulasi latency dinamis
+    setInterval(() => {
+      const latencyEl = document.getElementById('live-latency');
+      const randomLat = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+      latencyEl.textContent = `Latency: ${randomLat}ms`;
+    }, 3000);
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
