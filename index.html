@@ -282,6 +282,10 @@
   <br/>
 
   <div class="proj-grid" id="projGrid"></div>
+  <br/>
+  <div class="hero-actions">
+    <a href="projects/index.html" target="_blank" class="btn-primary"><span>View All Projects</span></a>
+  </div>
 
   <!-- <div class="proj-list reveal">
 
@@ -314,7 +318,7 @@
       <div class="pi-body">
         <div class="pi-title">Enterprise Multi-Client DevOps</div>
         <div class="pi-role">Senior Devops Engineer</div>
-        <p class="pi-desc">Managed and optimized DevOps infrastructure for high-profile clients across financial services and government sectors. High availability and security compliance across <strong>WOM Finance, INA, HokBen, Ditjenpas</strong>.</p>
+        <p class="pi-desc">Managed and optimized DevOps infrastructure for high-profile clients across financial services and government sectors. High availability and security compliance .</p>
         <div class="pc-tags">
           <span class="tag">AWS</span><span class="tag">ECS</span><span class="tag">EKS</span><span class="tag">GitLab CI</span><span class="tag">Jenkins</span><span class="tag">SonarQube</span>
         </div>
@@ -697,12 +701,10 @@
         <div class="tl-role">DevOps Engineer (Contract 2022-2023)  → Strategic Freelance Consultant (2023-2025)</div>
         <div class="tl-clients">
           <span class="tl-client-chip">HokBen</span>
-          <span class="tl-client-chip">WOM Finance</span>
-          <span class="tl-client-chip">INA</span>
-          <span class="tl-client-chip">Ditjen PAS</span>
+          <span class="tl-client-chip">Confidential</span
         </div>
         <ul class="tl-points">
-          <li>Appointed as a Dedicated DevOps Engineer to manage infrastructure for <strong>PT Merkle Innovation Technology</strong>, overseeing high-profile clients including <strong>HokBen, WOM Finance, INA, and Ditjen PAS</strong></li>
+          <li>Appointed as a Dedicated DevOps Engineer to manage infrastructure for <strong>PT Merkle Innovation Technology</strong>, overseeing high-profile clients </li>
           <li>Designed secure production environments and provided comprehensive cost-benefit analyses and security audits for enterprise-grade AWS deployments</strong></li>
           <li>Streamlined software delivery cycles by implementing automated CI/CD workflows, ensuring rapid and reliable releases for diverse client portfolios</li>
           <li>Ongoing Advisory: Currently providing strategic infrastructure support and specialized DevOps troubleshooting for mission-critical projects on a consultancy basis</li>
@@ -1038,15 +1040,15 @@
       desc: "A fast-growing F&B chain was overspending on cloud by 3x. Led phased optimization — first cutting AWS costs by 32%, then engineering a full migration to bare metal Kubernetes. Implemented Cloudflare Zero Trust to eliminate public management exposure. Result: 85% OPEX savings.",
       tags: ["AWS","Bare Metal","Kubernetes","Terraform","Cloudflare Zero Trust","GitHub Actions","Prometheus","Grafana"],
       metricNum: "↓85%", metricSub: "OPEX Reduction",
-      imgs: ['./images/haus-1.png'], imgLabel: "haus.indonesia"
+      imgs: ['./images/haus-1.webp','./images/haus-2.webp'], imgLabel: "haus.indonesia"
     },
     {
       year: "2024 – 2025", client: "Multi-Client", company: "PT Simtek / PT Merkle",
       role: "Senior DevOps Engineer", title: "Enterprise Multi-Client DevOps",
-      desc: "Managed and optimized DevOps infrastructure for high-profile clients across financial services and government sectors. Delivered high availability and security compliance across WOM Finance, INA, HokBen, and Ditjenpas.",
+      desc: "Managed and optimized DevOps infrastructure for high-profile clients across financial services and government sectors. Delivered high availability and security compliance  ",
       tags: ["AWS","ECS","EKS","GitLab CI","Jenkins","SonarQube"],
       metricNum: "4+", metricSub: "Enterprise Clients",
-      imgs: ['./images/hokben-1.png','./images/wom-1.png','./images/ditjenpas-1.jpg'], imgLabel: "simtek.enterprise"
+      imgs: ['./images/hokben-1.webp','./images/wom-1.webp','./images/ditjenpas-1.webp'], imgLabel: "simtek.enterprise"
     },
     {
       year: "2025", client: "RSMH Palembang", company: "PT Medxa",
@@ -1054,7 +1056,7 @@
       desc: "Designed and implemented comprehensive end-to-end hybrid cloud architecture for a major hospital's management system (SIMRS). Established secure dual Site-to-Site VPN with ZeroTier SD-WAN failover. Engineered disaster recovery ensuring zero downtime for critical healthcare data.",
       tags: ["OCI","Bare Metal","Docker Swarm","Ansible","GitLab CI","Site-to-Site VPN","ZeroTier","MinIO"],
       metricNum: "Hybrid", metricSub: "OCI & On-Premise",
-      imgs: ['./images/rsmh-0.png','./images/rsmh-1.png','./images/rsmh-2.png','./images/rsmh-3.png','./images/rsmh-4.png'], imgLabel: "rsmh.hybrid-cloud"
+      imgs: ['./images/rsmh-0.webp','./images/rsmh-1.webp','./images/rsmh-2.webp','./images/rsmh-3.webp','./images/rsmh-4.webp'], imgLabel: "rsmh.hybrid-cloud"
     },
     {
       year: "2024", client: "Biometric Security", company: "PT Medxa",
@@ -1062,7 +1064,7 @@
       desc: "Deployed biometric identification for hospital security. Milvus as vector database for efficient face similarity search integrated with Python recognition models on OCI.",
       tags: ["Python","Milvus","MinIO","OCI","Docker"],
       metricNum: "Vector", metricSub: "Search · Biometric",
-      imgs: [], imgLabel: "medxa.biometric"
+      imgs: ['./images/fr-1.webp'], imgLabel: "medxa.biometric"
     },
     {
       year: "2024", client: "Bumitama Agri Ltd.", company: "PT Kreatif Technology Multiguna",
@@ -1070,7 +1072,7 @@
       desc: "Led technical architecture and development of an enterprise super-app for the plantation industry. Managed complex data integration and serverless functions using the Azure ecosystem across multiple business platforms.",
       tags: ["Azure","Azure Functions","Azure DevOps","C#","Flutter"],
       metricNum: "Azure", metricSub: "Serverless Arch",
-      imgs: ['./images/sparta-1.png','./images/sparta-1.png'], imgLabel: "bumitama.sparta"
+      imgs: ['./images/sparta-1.webp','./images/sparta-2.webp'], imgLabel: "bumitama.sparta"
     },
     {
       year: "2024", client: "Bumitama Agri Ltd.", company: "PT Kreatif Technology Multiguna",
@@ -1078,7 +1080,7 @@
       desc: "Directed development of an Offline-First mobile inspection and patrol system for remote plantation areas. Automated background synchronization to Azure once connectivity is restored.",
       tags: ["Azure","Azure Functions","Azure Data Factory","Azure DevOps","Flutter"],
       metricNum: "Offline", metricSub: "First Architecture",
-      imgs: [], imgLabel: "bumitama.patrol"
+      imgs: ['./images/gip-1.webp','./images/gip-2.webp'], imgLabel: "bumitama.patrol"
     },
     {
       year: "2024", client: "RSOJ Pertamina Makassar", company: "PT Medxa",
@@ -1086,7 +1088,7 @@
       desc: "Engineered a secure networking bridge between AWS Cloud and On-Premise data centers. Implemented Site-to-Site VPN with Fortigate for seamless encrypted data transmission between environments.",
       tags: ["AWS","Site-to-Site VPN","Fortigate","On-Premise"],
       metricNum: "Zero", metricSub: "Public Exposure",
-      imgs: [], imgLabel: "pertamina.vpn"
+      imgs: ['./images/rsoj-1.webp'], imgLabel: "pertamina.vpn"
     },
     {
       year: "2024", client: "PON XXI SUMUT", company: "PT Belant Persada",
@@ -1094,7 +1096,7 @@
       desc: "Architected and managed high-traffic on-premise Kubernetes infrastructure for national-scale sports data management. Ensured high availability under event-day peak load.",
       tags: ["Bare Metal K8s","On-Premise","GitLab CI","Ansible"],
       metricNum: "National", metricSub: "Scale · On-Premise",
-      imgs: [], imgLabel: "pon-xxi.infra"
+      imgs: ['./images/ponaceh-1.webp'], imgLabel: "pon-xxi.infra"
     },
     {
       year: "2024", client: "Indonesia 2024 Election", company: "PT Kreatif Teknologi Multiguna",
@@ -1102,7 +1104,7 @@
       desc: "Developed a robust data entry and tabulation platform for 2024 election results. Engineered a high-concurrency Golang backend handling simultaneous submissions from thousands of polling stations.",
       tags: ["Golang","Kubernetes","GitHub Actions","Ansible"],
       metricNum: "Real-Time", metricSub: "High Concurrency",
-      imgs: [], imgLabel: "pemilu.realcount"
+      imgs: ['./images/rc-1.webp','./images/rc-2.webp','./images/rc-3.webp','./images/rc-4.webp'], imgLabel: "pemilu.realcount"
     },
     {
       year: "2023", client: "Nagaexchange", company: "PT SIMTEK",
@@ -1110,7 +1112,7 @@
       desc: "Architected production EKS cluster for a crypto trading platform. Security hardening with WAF & Shield. Managed complex microservices with Vault secrets management and zero public exposure.",
       tags: ["AWS EKS","Terraform","Vault","WAF","Kustomize","Prometheus","Loki"],
       metricNum: "Zero", metricSub: "Public Exposure",
-      imgs: [], imgLabel: "nagaexchange.eks"
+      imgs: ['./images/naga-1.webp'], imgLabel: "nagaexchange.eks"
     },
     {
       year: "2023", client: "Cloami Apparel Manufacturing", company: "PT Sahaware Indonesia",
@@ -1126,7 +1128,7 @@
       desc: "Migrated legacy PM2 services to EKS. Resolved critical DB bottlenecks with Aurora + connection pooling. Validated for 100k concurrent users under peak traffic with full CI/CD pipelines.",
       tags: ["AWS EKS","Amazon Aurora","Jenkins","ELK Stack","SonarQube"],
       metricNum: "100K", metricSub: "Concurrent Users",
-      imgs: ['./images/mdl-0.png','./images/mdl-1.png','./images/mdl-2.png'], imgLabel: "metranet.eks"
+      imgs: ['./images/mdl-0.webp','./images/mdl-1.webp','./images/mdl-2.webp'], imgLabel: "metranet.eks"
     }
   ];
 
@@ -1144,7 +1146,7 @@
     const multi = slides.length > 1;
 
     const slidesHtml = slides.map(src => src
-      ? `<div class="${prefix}-slide"><img src="${src}" alt="${p.title}" loading="lazy"></div>`
+      ? `<div class="${prefix}-slide"><img loading="lazy" decoding="async" src="${src}" alt="${p.title}" loading="lazy" decoding="async"></div>`
       : `<div class="${prefix}-slide"><div class="carousel-placeholder"><span class="placeholder-label">$ ls ./${p.imgLabel}</span></div></div>`
     ).join('');
 
@@ -1255,7 +1257,7 @@
     const imgs = p.imgs && p.imgs.length > 0 ? p.imgs : [null];
     mCount = imgs.length; mCur = 0;
     mTrack.innerHTML = imgs.map(src => src
-      ? `<div class="modal-carousel-slide"><img src="${src}" alt="${p.title}"></div>`
+      ? `<div class="modal-carousel-slide"><img loading="lazy" decoding="async" src="${src}" alt="${p.title}"></div>`
       : `<div class="modal-carousel-slide"><div class="modal-carousel-placeholder"><span style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:${accent}">$ ls ./${p.imgLabel}</span></div></div>`
     ).join('');
     mTrack.style.transform = 'translateX(0)';
