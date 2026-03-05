@@ -901,9 +901,6 @@ section { padding: 100px 60px; position: relative; z-index: 2; }
 .expertise-card:hover .ec-desc { color: var(--text); }
 
 /* PROJECTS */
-#projects { 
-  background: var(--bg); 
-}
 
 /* ── GRID ── */
 .proj-grid {
@@ -1606,7 +1603,7 @@ section { padding: 100px 60px; position: relative; z-index: 2; }
     repeating-linear-gradient(-45deg, rgba(0,100,180,0.07) 0px, rgba(0,100,180,0.07) 1px, transparent 1px, transparent 28px);
 }
 
-#projects {
+/* #projects {
   background-color: var(--bg);
   background-image:
     radial-gradient(ellipse 55% 50% at 95% 5%,  rgba(0,229,255,0.13) 0%, transparent 55%),
@@ -1616,7 +1613,7 @@ section { padding: 100px 60px; position: relative; z-index: 2; }
   background-image:
     radial-gradient(ellipse 55% 50% at 95% 5%,  rgba(0,120,220,0.12) 0%, transparent 55%),
     radial-gradient(ellipse 45% 55% at 5%  95%, rgba(220,70,20,0.09) 0%, transparent 55%);
-}
+} */
 
 #experience {
   background-color: var(--bg);
