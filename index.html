@@ -99,7 +99,7 @@
       <p class="hero-title">Hybrid Cloud & Platform Engineer</p>
        <!-- BADGE DevOps & Software Engineer -->
       <div class="role-badges">
-        <span class="role-badge">Devops Engineer</span>
+        <span class="role-badge">DevOps Engineer</span>
         <span class="role-badge engineer">Software Engineer</span>
         <span class="role-badge">Cloud Architect</span>
       </div>
@@ -409,13 +409,13 @@
       </div>
       <div class="tl-right">
         <div class="tl-company">Independent Cloud &amp; DevOps Consultant</div>
-        <div class="tl-role">Remote Freelance · Independent Cloud & Devops Consultant</div>
+        <div class="tl-role">Remote Freelance · Independent Cloud & DevOps Consultant</div>
         <div class="tl-role">Providing strategic infrastructure oversight and technical leadership for multiple enterprise organizations, driving cost optimization and hybrid-cloud orchestration as an independent consultant</div>
         <div class="tl-clients">
           <span class="tl-client-chip">PT INSPIRASI BISNIS NUSANTARA (Haus! Indonesia)</span>
         </div>
         <ul class="tl-points">
-          <li>Led cloud cost optimization initiative reducing monthly cloud expenditure by 32%, followed by strategic migration to Bare Metal infrastructure achieving ~85% total cost reduction without SLA degradation</li>
+          <li>Led cloud cost optimization initiative reducing monthly cloud expenditure by 32%, followed by strategic migration to Bare Metal infrastructure achieving significant infrastructure cost reduction without SLA degradation</li>
           <li>Architected hybrid Kubernetes environment across cloud and on-premise</li>
           <li>Implemented Cloudflare Zero Trust to eliminate public management exposure and enhance security posture</li>
         </ul>
@@ -427,9 +427,9 @@
           <span class="tl-client-chip">PT MEDXA</span>
         </div>
         <ul class="tl-points">
-          <li>Designed hybrid cloud architecture (On-premise Bare Metal + OCI) for SIMRS Hospital Management System with site-to-site VPN for data plane connectivity and ZeroTier for secure management plane access (ZTNA), enabling both reliable data sync and zero-trust administrative access.</li>
-          <li>Implemented comprehensive observability stack monitoring CPU, memory, and Oracle DB sessions for proactive incident response.</li>
-          <li>Developed face recognition system using Milvus vector database and Python to enhance hospital security identification.</li>
+          <li>Designed hybrid cloud architecture (On-premise Bare Metal + On Cloud) for SIMRS Hospital Management System with site-to-site VPN for data plane connectivity and ZeroTier for secure management plane access (ZTNA), enabling both reliable data sync and zero-trust administrative access.</li>
+          <li>Implemented comprehensive observability stack monitoring CPU, memory, and DB sessions for proactive incident response.</li>
+          <li>Developed face recognition system using vector similarity search with Milvus and Python to enhance hospital security identification.</li>
           <li>Disaster Recovery: Designed and implemented Disaster Recovery (DR) strategies for critical healthcare data</li>        </ul>
         <br/>
         <div class="divider"></div>
@@ -457,7 +457,6 @@
         <div class="tl-company">PT Simbiotik Teknologi Inovasi</div>
         <div class="tl-role">DevOps Engineer (Contract 2022-2023)  → Strategic Freelance Consultant (2023-2025)</div>
         <div class="tl-clients">
-          <span class="tl-client-chip">HokBen</span>
           <span class="tl-client-chip">Confidential</span>
         </div>
         <ul class="tl-points">
@@ -813,7 +812,7 @@
       imgs: ['./images/arch/backup_aws.webp'], imgLabel: "simtek.enterprise"
     },
     {
-      year: "2025", client: "Regional Public Hospital | Confidential Client", company: "PT Medxa",
+      year: "2025", client: "Major Public Hospital", company: "PT Medxa",
       role: "Platform & Infrastructure Engineer", title: "Hospital-Critical Hybrid Cloud Infrastructure",
       desc: "•	Designed and implemented comprehensive end-to-end hybrid cloud architecture (On-premise Bare Metal + OCI) for SIMRS Hospital Management System with site-to-site VPN for data plane connectivity and ZeroTier for secure management plane access (ZTNA), enabling both reliable data sync and zero-trust administrative access.",
       tags: ["OCI","Bare Metal","Docker Swarm","Ansible","GitLab CI","Site-to-Site VPN","ZeroTier","MinIO"],
@@ -829,7 +828,7 @@
       imgs: ['./images/fr-1.webp'], imgLabel: "medxa.biometric"
     },
     {
-      year: "2024", client: "Plantation Enterprise | Confidential Client", company: "PT Kreatif Technology Multiguna",
+      year: "2024", client: "Plantation Enterprise | Confidential Client", company: "PT Kreatif Teknologi Multiguna",
       role: "Technical Lead", title: "SPARTA Super Apps",
       desc: "Led technical architecture and development of an enterprise super-app for the plantation industry. Managed complex data integration and serverless functions using the Azure ecosystem across multiple business platforms.",
       tags: ["Azure","Azure Functions","Azure DevOps","C#","Flutter"],
@@ -837,7 +836,7 @@
       imgs: ['./images/arch/azure_data_factory.webp'], imgLabel: "superapps.sparta"
     },
     {
-      year: "2024", client: "Plantation Enterprise | Confidential Client", company: "PT Kreatif Technology Multiguna",
+      year: "2024", client: "Plantation Enterprise | Confidential Client", company: "PT Kreatif Teknologi Multiguna",
       role: "Technical Lead", title: "General Inspection Patroli",
       desc: "Directed development of an Offline-First mobile inspection and patrol system for remote plantation areas. Automated background synchronization to Azure once connectivity is restored.",
       tags: ["Azure","Azure Functions","Azure Data Factory","Azure DevOps","Flutter"],
@@ -845,7 +844,7 @@
       imgs: ['./images/arch/azure_data_factory.webp'], imgLabel: "plantation.patrol"
     },
     {
-      year: "2024", client: "Regional Public Hospital | Confidential Client", company: "PT Medxa",
+      year: "2024", client: "Private Healthcare Institution | Confidential Client", company: "PT Medxa",
       role: "Senior DevOps Engineer", title: "Secure Hospital Infrastructure",
       desc: "Engineered a secure networking bridge between AWS Cloud and On-Premise data centers. Implemented Site-to-Site VPN with Fortigate for seamless encrypted data transmission between environments.",
       tags: ["AWS","Site-to-Site VPN","Fortigate","On-Premise"],
@@ -1006,12 +1005,12 @@
     document.getElementById('modalTopBar').style.background = accent;
     document.getElementById('mYear').textContent = p.year;
     document.getElementById('mClient').textContent = p.client;
-    document.getElementById('mCompany').textContent = p.company;
+    document.getElementById('mCompany').textContent = "Employer: " + p.company;
     const mn = document.getElementById('mMetricNum');
     mn.textContent = p.metricNum; mn.style.color = accent;
     document.getElementById('mMetricSub').textContent = p.metricSub;
     document.getElementById('mTitle').textContent = p.title;
-    document.getElementById('mRole').textContent = p.role;
+    document.getElementById('mRole').textContent = "Role: " + p.role;
     document.getElementById('mDesc').textContent = p.desc;
     document.getElementById('mTags').innerHTML = p.tags.map(t=>`<span class="tag">${t}</span>`).join('');
 
