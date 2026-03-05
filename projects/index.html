@@ -1,0 +1,530 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Projects – Iwan Setiawan</title>
+<script>try{var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #080c10; --surface: #0d1318; --surface2: #111920;
+  --border: #1e2d38; --border2: #243444;
+  --accent: #00e5ff; --accent2: #ff6b35; --accent3: #7fff6b;
+  --text: #cdd8e0; --text-muted: #d8eaf2; --text-dim: #8a9aaa;
+  --white: #eef4f7; --purple: #a78bfa; --yellow: #ffd666;
+  --blue: #4a8de6; --red: #f02435;
+  --mono: 'JetBrains Mono', monospace; --display: 'Syne', sans-serif;
+}
+[data-theme="light"] {
+  --bg: #f5f7fa; --surface: #ffffff; --surface2: #eef2f7;
+  --border: #d0dce8; --border2: #b8ccd8;
+  --accent: #0e646e; --accent2: #cc4a1a; --accent3: #2e7d32;
+  --text: #2d3e4a; --text-muted: #5a7a8a; --text-dim: #6a7a8a;
+  --white: #0d1318; --purple: #6d28d9; --yellow: #c79409;
+  --blue: #2b16eb; --red: #f02435;
+}
+
+body { background: var(--bg); color: var(--text); font-family: var(--mono); min-height: 100vh; padding: 48px 36px; transition: background 0.3s, color 0.3s; }
+
+/* ── HEADER ── */
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 36px; flex-wrap: wrap; gap: 16px; }
+.header-left {}
+.section-label { font-size: 10px; font-weight: 500; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.section-label::after { content: ''; width: 50px; height: 1px; background: var(--border); }
+h1 { font-family: var(--display); font-size: clamp(24px, 3.5vw, 38px); font-weight: 800; color: var(--white); letter-spacing: -1px; }
+.proj-count { font-size: 11px; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.5px; }
+.proj-count span { color: var(--accent); font-weight: 700; }
+
+.theme-toggle { background: transparent; border: 1px solid var(--border2); color: var(--text-muted); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; transition: all 0.2s; flex-shrink: 0; }
+.theme-toggle:hover { border-color: var(--accent); background: rgba(0,229,255,0.05); }
+
+/* ── FILTERS ── */
+.filters { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; align-items: flex-start; }
+.filter-group { display: flex; flex-direction: column; gap: 6px; }
+.filter-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); padding-left: 2px; }
+.filter-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+.pill {
+  font-family: var(--mono); font-size: 10px; padding: 4px 11px;
+  border: 1px solid var(--border); color: var(--text-dim);
+  background: transparent; cursor: pointer;
+  transition: all 0.18s; border-radius: 2px; letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+.pill.active { border-color: var(--accent); color: var(--accent); background: rgba(0,229,255,0.08); }
+.pill.active.cat-freelance { border-color: var(--accent3); color: var(--accent3); background: rgba(127,255,107,0.08); }
+.pill.active.cat-fulltime  { border-color: var(--accent2); color: var(--accent2); background: rgba(255,107,53,0.08); }
+.pill.active.cat-parttime  { border-color: var(--purple);  color: var(--purple);  background: rgba(167,139,250,0.08); }
+
+/* search */
+.search-wrap { position: relative; flex: 1; min-width: 180px; max-width: 280px; }
+.search-wrap input {
+  width: 100%; font-family: var(--mono); font-size: 11px;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); padding: 7px 12px 7px 32px;
+  outline: none; transition: border-color 0.2s; letter-spacing: 0.5px;
+}
+.search-wrap input:focus { border-color: var(--accent); }
+.search-wrap input::placeholder { color: var(--text-dim); }
+.search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 12px; color: var(--text-dim); pointer-events: none; }
+
+/* active filters + clear */
+.filter-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; min-height: 24px; }
+.active-chip { font-size: 10px; padding: 3px 8px; background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.25); color: var(--accent); border-radius: 2px; display: flex; align-items: center; gap: 5px; }
+.active-chip button { background: none; border: none; color: var(--accent); cursor: pointer; font-size: 11px; padding: 0; line-height: 1; }
+.clear-all { font-size: 10px; color: var(--text-dim); background: none; border: 1px solid var(--border); padding: 3px 10px; cursor: pointer; font-family: var(--mono); transition: all 0.15s; }
+.clear-all:hover { border-color: var(--red); color: var(--red); }
+
+/* ── GRID ── */
+.proj-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); overflow: hidden; }
+
+.no-results { grid-column: 1/-1; padding: 60px; text-align: center; color: var(--text-dim); font-size: 13px; }
+.no-results span { color: var(--accent); }
+
+/* ── CARD ── */
+.proj-card {
+  background: var(--surface); position: relative; overflow: hidden;
+  cursor: pointer; transition: background 0.3s ease;
+  display: flex; flex-direction: column;
+}
+.proj-card:hover { background: var(--surface2); }
+.proj-card.hidden { display: none; }
+
+/* shimmer */
+.proj-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(0,229,255,0.04) 50%, transparent 70%);
+  transform: translateX(-100%); transition: transform 0.6s ease;
+  z-index: 1; pointer-events: none;
+}
+.proj-card:hover::before { transform: translateX(100%); }
+
+/* top border */
+.proj-card::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); z-index: 3;
+}
+.proj-card:hover::after { transform: scaleX(1); }
+
+/* category color coding */
+.proj-card[data-cat="fulltime"]::after  { background: var(--accent2); }
+.proj-card[data-cat="freelance"]::after { background: var(--accent3); }
+.proj-card[data-cat="parttime"]::after  { background: var(--purple); }
+
+.proj-card[data-cat="fulltime"]::before  { background: linear-gradient(105deg, transparent 30%, rgba(255,107,53,0.05) 50%, transparent 70%); }
+.proj-card[data-cat="freelance"]::before { background: linear-gradient(105deg, transparent 30%, rgba(127,255,107,0.05) 50%, transparent 70%); }
+.proj-card[data-cat="parttime"]::before  { background: linear-gradient(105deg, transparent 30%, rgba(167,139,250,0.05) 50%, transparent 70%); }
+
+/* ── CARD IMAGE ── */
+.card-img {
+  width: 100%; aspect-ratio: 16/9;
+  overflow: hidden; position: relative; background: var(--surface2); flex-shrink: 0;
+}
+.card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s, filter 0.4s; filter: brightness(0.72) saturate(0.8); }
+.proj-card:hover .card-img img { transform: scale(1.05); filter: brightness(0.9) saturate(1.1); }
+.card-img-placeholder {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%); position: relative; overflow: hidden;
+}
+.card-img-placeholder::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(255,255,255,0.012) 8px, rgba(255,255,255,0.012) 9px); }
+.placeholder-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--border2); position: relative; z-index: 1; }
+
+.card-img-overlay { position: absolute; inset: 0; background: rgba(8,12,16,0.55); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; z-index: 2; pointer-events: none; }
+.proj-card:hover .card-img-overlay { opacity: 1; }
+.overlay-btn { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--white); border: 1px solid rgba(255,255,255,0.3); padding: 6px 14px; background: rgba(255,255,255,0.05); backdrop-filter: blur(4px); }
+
+/* category badge on image */
+.cat-badge {
+  position: absolute; top: 8px; left: 8px; z-index: 3;
+  font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 2px; font-family: var(--mono);
+  backdrop-filter: blur(4px);
+}
+.cat-badge.fulltime  { background: rgba(255,107,53,0.85);  color: #fff; }
+.cat-badge.freelance { background: rgba(127,255,107,0.85); color: #0a1008; }
+.cat-badge.parttime  { background: rgba(167,139,250,0.85); color: #fff; }
+
+/* ── CARD BODY ── */
+.card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; position: relative; z-index: 2; }
+
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; }
+.card-year { font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; transition: color 0.3s; }
+.proj-card[data-cat="fulltime"]:hover  .card-year { color: var(--accent2); }
+.proj-card[data-cat="freelance"]:hover .card-year { color: var(--accent3); }
+.proj-card[data-cat="parttime"]:hover  .card-year { color: var(--purple); }
+
+.card-role-badge { font-size: 8px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-dim); border: 1px solid var(--border); padding: 2px 6px; border-radius: 2px; white-space: nowrap; transition: all 0.2s; }
+.proj-card[data-cat="fulltime"]:hover  .card-role-badge { border-color: var(--accent2); color: var(--accent2); }
+.proj-card[data-cat="freelance"]:hover .card-role-badge { border-color: var(--accent3); color: var(--accent3); }
+.proj-card[data-cat="parttime"]:hover  .card-role-badge { border-color: var(--purple); color: var(--purple); }
+
+.card-client { font-size: 10px; font-weight: 500; color: var(--accent); line-height: 1.4; }
+.card-company { font-size: 9px; color: var(--text-dim); margin-top: -4px; }
+
+.card-title { font-family: var(--display); font-size: 12px; font-weight: 700; color: var(--white); line-height: 1.3; transition: color 0.3s; }
+.proj-card[data-cat="fulltime"]:hover  .card-title { color: var(--accent2); }
+.proj-card[data-cat="freelance"]:hover .card-title { color: var(--accent3); }
+.proj-card[data-cat="parttime"]:hover  .card-title { color: var(--purple); }
+
+.card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; padding-top: 4px; }
+.tag { font-family: var(--mono); font-size: 9px; color: var(--text-dim); border: 1px solid var(--border); padding: 2px 6px; letter-spacing: 0.03em; transition: all 0.2s ease; display: inline-block; }
+.proj-card[data-cat="fulltime"]:hover  .tag { border-color: var(--accent2); color: var(--accent2); transform: translateY(-1px); }
+.proj-card[data-cat="freelance"]:hover .tag { border-color: var(--accent3); color: var(--accent3); transform: translateY(-1px); }
+.proj-card[data-cat="parttime"]:hover  .tag { border-color: var(--purple);  color: var(--purple);  transform: translateY(-1px); }
+
+.card-tags .tag:nth-child(1) { transition-delay: 0ms; }
+.card-tags .tag:nth-child(2) { transition-delay: 25ms; }
+.card-tags .tag:nth-child(3) { transition-delay: 50ms; }
+.card-tags .tag:nth-child(4) { transition-delay: 75ms; }
+
+/* ── MODAL ── */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.25s; backdrop-filter: blur(6px); }
+.modal-overlay.active { opacity: 1; pointer-events: all; }
+.modal { background: var(--surface2); border: 1px solid var(--border2); border-radius: 4px; max-width: 680px; width: 100%; max-height: 88vh; overflow-y: auto; transform: translateY(20px) scale(0.97); transition: transform 0.3s cubic-bezier(0.34,1.2,0.64,1); position: relative; }
+.modal-overlay.active .modal { transform: translateY(0) scale(1); }
+.modal-top-bar { height: 3px; border-radius: 4px 4px 0 0; }
+.modal-img { width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+.modal-img img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.85); }
+.modal-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--surface) 0%, #0a1520 100%); }
+.modal-inner { padding: 24px 28px 28px; }
+.modal-close { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.55); border: 1px solid var(--border2); color: var(--text-dim); width: 28px; height: 28px; border-radius: 2px; cursor: pointer; font-size: 13px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; font-family: var(--mono); z-index: 5; }
+.modal-close:hover { border-color: var(--accent); color: var(--white); }
+.modal-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+.m-year { font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; margin-bottom: 3px; }
+.m-client { font-size: 13px; font-weight: 600; }
+.m-company { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+.m-cat { display: inline-flex; padding: 2px 8px; border-radius: 2px; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 5px; }
+.m-cat.fulltime  { background: rgba(255,107,53,0.15);  color: var(--accent2); border: 1px solid rgba(255,107,53,0.3); }
+.m-cat.freelance { background: rgba(127,255,107,0.12); color: var(--accent3); border: 1px solid rgba(127,255,107,0.3); }
+.m-cat.parttime  { background: rgba(167,139,250,0.12); color: var(--purple);  border: 1px solid rgba(167,139,250,0.3); }
+.modal-title { font-family: var(--display); font-size: 19px; font-weight: 800; color: var(--white); letter-spacing: -0.3px; margin-bottom: 6px; line-height: 1.2; }
+.modal-role { display: inline-flex; padding: 3px 10px; border: 1px solid rgba(0,229,255,0.2); background: rgba(0,229,255,0.06); border-radius: 2px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.modal-divider { height: 1px; background: var(--border); margin-bottom: 14px; }
+.modal-desc { font-size: 12px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 16px; }
+.modal-stack-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
+.modal-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.modal-tags .tag { font-size: 10px; padding: 3px 9px; }
+.modal::-webkit-scrollbar { width: 3px; }
+.modal::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) { .proj-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px)  { .proj-grid { grid-template-columns: repeat(2, 1fr); } body { padding: 28px 14px; } }
+@media (max-width: 480px)  { .proj-grid { grid-template-columns: 1fr; } .modal-inner { padding: 16px 14px 20px; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="section-label">All Work</div>
+    <h1>Project Archive</h1>
+    <div class="proj-count">Showing <span id="visCount">0</span> of <span id="totalCount">0</span> projects</div>
+  </div>
+  <button class="theme-toggle" id="themeToggle"><span id="toggleIcon">☀️</span></button>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <div class="filter-group">
+    <div class="filter-label">Category</div>
+    <div class="filter-pills" id="filterCat">
+      <button class="pill active" data-val="all">All</button>
+      <button class="pill cat-fulltime"  data-val="fulltime">Fulltime</button>
+      <button class="pill cat-freelance" data-val="freelance">Freelance</button>
+      <button class="pill cat-parttime"  data-val="parttime">Part-time</button>
+    </div>
+  </div>
+  <div class="filter-group">
+    <div class="filter-label">Year</div>
+    <div class="filter-pills" id="filterYear"></div>
+  </div>
+  <div class="filter-group">
+    <div class="filter-label">Platform</div>
+    <div class="filter-pills" id="filterStack"></div>
+  </div>
+  <div class="filter-group">
+    <div class="filter-label">Role</div>
+    <div class="filter-pills" id="filterRole"></div>
+  </div>
+  <div class="filter-group" style="justify-content:flex-end;margin-left:auto">
+    <div class="filter-label">Search</div>
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="searchInput" placeholder="project, client, tech...">
+    </div>
+  </div>
+</div>
+
+<div class="filter-bar" id="filterBar"></div>
+
+<div class="proj-grid" id="projGrid"></div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-top-bar" id="mTopBar"></div>
+    <div class="modal-img" id="mImg"></div>
+    <div class="modal-inner">
+      <div class="modal-head">
+        <div>
+          <div class="m-year" id="mYear"></div>
+          <div class="m-client" id="mClient"></div>
+          <div class="m-company" id="mCompany"></div>
+          <div class="m-cat" id="mCat"></div>
+        </div>
+      </div>
+      <div class="modal-title" id="mTitle"></div>
+      <div class="modal-role" id="mRole"></div>
+      <div class="modal-divider"></div>
+      <div class="modal-desc" id="mDesc"></div>
+      <div class="modal-stack-label">Tech Stack</div>
+      <div class="modal-tags" id="mTags"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const projects = [
+  // ── FULLTIME – BELANT PERSADA ──
+  { year:2013, cat:"fulltime", client:"Sekretariat Negara", company:"PT Belant Persada", title:"Polyclinic Application", role:"Full-Stack Developer", platform:"On-Premise", tags:["PHP","CodeIgniter","On-Premise"], desc:"Developed polyclinic management application for Sekretariat Negara. Handled patient records, appointments, and medical data management.", img:null },
+  { year:2014, cat:"fulltime", client:"Kementerian Keuangan", company:"PT Belant Persada", title:"SIMAN – State Asset Management", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#","DevExpress","Desktop App","On-Premise"], desc:"Desktop application for state asset management across the Ministry of Finance. Handled asset registration, depreciation, and reporting.", img:null },
+  { year:2016, cat:"fulltime", client:"Kementerian Pemuda & Olahraga", company:"PT Belant Persada", title:"PON XIX & PEPARNAS XV Jawa Barat", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#","DevExpress","Desktop App"], desc:"Developed desktop application for PON XIX & PEPARNAS XV event management in Jawa Barat. Managed athlete data, scheduling, and results tabulation.", img:null },
+  { year:2017, cat:"fulltime", client:"PUSIKNAS BARESKRIM POLRI", company:"PT Belant Persada", title:"Business Intelligence – Police Report", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#","ASP.NET","Power BI","On-Premise"], desc:"Built business intelligence dashboard for PUSIKNAS BARESKRIM POLRI. Integrated Power BI for crime data visualization and reporting analytics.", img:null },
+  { year:2017, cat:"fulltime", client:"Kementerian Keuangan", company:"PT Belant Persada", title:"SIKNL – Other State Assets Management", role:"Full-Stack Developer", platform:"On-Premise", tags:["Java","Spring MVC","On-Premise"], desc:"Developed state assets management system for Ministry of Finance. Handled non-land asset lifecycle from procurement to disposal.", img:null },
+  { year:2018, cat:"fulltime", client:"Kementerian PUPR", company:"PT Belant Persada", title:"SP3A – Budget Planning & Execution Control", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#","DevExpress","ASP.NET MVC","On-Premise"], desc:"Budget planning and execution control system for Ministry of Public Works. Managed project budgets, disbursement tracking, and financial reporting.", img:null },
+  { year:2019, cat:"fulltime", client:"DAPEN BI", company:"PT Belant Persada", title:"Billing Scorecard System", role:"Full-Stack Developer", platform:"On-Premise", tags:["Java","Spring Boot","On-Premise"], desc:"Billing and scorecard system for DAPEN BI (Bank Indonesia Pension Fund). Managed billing cycles, payment tracking, and performance scorecards.", img:null },
+  { year:2019, cat:"fulltime", client:"PT Multi Terminal Indonesia", company:"PT Belant Persada", title:"Single Interface Billing", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#",".NET Core","Talend ESB","PHP","Phalcon","On-Premise"], desc:"Unified billing interface for PT Multi Terminal Indonesia (IPC Pelindo). Integrated multiple billing systems via ESB for streamlined logistics billing.", img:null },
+  { year:2020, cat:"fulltime", client:"Internal Product", company:"PT Belant Persada", title:"Smart Water System", role:"Full-Stack Developer", platform:"GCP", tags:["Python","C#",".NET Core","Google Cloud IoT","GCP"], desc:"IoT-based smart water management system leveraging Google Cloud IoT Core. Monitored water quality and flow data with real-time event-driven alerts.", img:null },
+  { year:2020, cat:"fulltime", client:"Internal Services", company:"PT Belant Persada", title:"OAuth 2.0 Server", role:"Backend Engineer", platform:"On-Premise", tags:["Golang","Gin","OAuth 2.0","On-Premise"], desc:"Built internal OAuth 2.0 authorization server in Golang. Provided centralized identity and access management across internal services.", img:null },
+  { year:2021, cat:"fulltime", client:"Internal Services", company:"PT Belant Persada", title:"Internal Framework – Backend API & Frontend", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#",".NET Core","On-Premise"], desc:"Developed internal framework for backend API and frontend standards. Established reusable components and development conventions across projects.", img:null },
+  { year:2021, cat:"fulltime", client:"Internal Product", company:"PT Belant Persada", title:"Smart Parking System", role:"Backend Engineer", platform:"On-Premise", tags:["Golang","Gin","On-Premise"], desc:"Backend API for smart parking management system. Handled real-time slot detection, booking, and payment processing.", img:null },
+  // ── FULLTIME – TELKOM CORP UNIVERSITY ──
+  { year:2022, cat:"fulltime", client:"Telkom Corporate University", company:"PT Metranet", title:"MyDigilearn Indonesia", role:"DevOps Engineer", platform:"AWS", tags:["AWS","EKS","EC2","ECS","EFS","EBS","RDS","Aurora","Jenkins","Prometheus","Grafana","Elastic Search","Ansible","AWS CLI"], desc:"Setup DevOps on AWS Cloud for Telkom CorpU product. Architected Kubernetes Cluster with comprehensive monitoring using Prometheus & Grafana and centralized logging via ELK stack.", img:null },
+  // ── FULLTIME – SIMTEK ──
+  { year:2022, cat:"fulltime", client:"Koinku", company:"PT SIMTEK", title:"Koinku – AWS DevOps Setup", role:"DevOps Engineer", platform:"AWS", tags:["AWS","Docker","GitLab CI","VPC","EC2","RDS","Load Balancer","Lambda"], desc:"Setup DevOps infrastructure on AWS Cloud for Koinku. Implemented Docker-based architecture with GitLab CI pipeline and managed AWS services including EC2, RDS, and Lambda.", img:null },
+  { year:2023, cat:"fulltime", client:"Membership Binary", company:"PT SIMTEK", title:"Membership Binary – ID Cloudhost", role:"DevOps Engineer", platform:"IDCloudHost", tags:["IDCloudHost","Docker","GitLab CI","Ansible","VM Instance"], desc:"Setup DevOps infrastructure on ID Cloudhost for Membership Binary platform. Implemented Docker architecture with GitLab CI pipeline and Ansible automation.", img:null },
+  { year:2023, cat:"fulltime", client:"Nagaexchange", company:"PT SIMTEK", title:"High-Security Crypto Exchange Infra", role:"DevOps Engineer", platform:"AWS", tags:["AWS","EKS","Terraform","Kustomize","Route 53","WAF","Shield","EFS","EBS","RDS","MongoDB","Redis","GitLab CI","Prometheus","Grafana Loki","Kong","Vault","Open VPN","AWS CLI"], desc:"Architected production EKS cluster for crypto trading platform. Security hardening with WAF & Shield. Complex microservices with Vault secrets management, Kong API Gateway, and zero public exposure.", img:null },
+  // ── FREELANCE ──
+  { year:2023, cat:"freelance", client:"Teladan Prima Agri, PT", company:"Freelance", title:"TPA Absence – Face Recognition System", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#",".NET Core","Face Recognition","NFC","On-Premise"], desc:"Full-stack development of an absence system with face recognition and NFC for Teladan Prima Agri. Integrated biometric identification for accurate employee attendance tracking.", img:null },
+  { year:2023, cat:"freelance", client:"Cloami Apparel Manufacturing", company:"PT Sahaware Indonesia", title:"Cloami – Integrated Manufacturing Platform", role:"DevOps Engineer", platform:"GCP", tags:["GCP","GKE","Kubernetes","GitLab CI","Terraform","Ansible","Kustomize"], desc:"Architected scalable production environment on Google Cloud for apparel manufacturing. Implemented full IaC for consistent provisioning and automated deployment workflows.", img:null },
+  { year:2023, cat:"freelance", client:"PT Multi Terminal Indonesia", company:"PT Belant Persada", title:"E-Meterai Integration System", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#",".NET Core","Docker","Talend ESB","On-Premise"], desc:"Developed and integrated e-Meterai electronic stamp system into corporate logistics workflows. Managed secure document signing and data exchange via Enterprise Service Bus.", img:null },
+  { year:2024, cat:"freelance", client:"Kreatif Teknologi Multiguna, PT", company:"Freelance", title:"Realcount Apps – Election Tabulation", role:"Full-Stack Developer", platform:"Local Cloud", tags:["Golang","Kubernetes","GitHub Actions","Ansible"], desc:"High-concurrency backend in Golang for 2024 election result tabulation. Handled simultaneous submissions from thousands of polling stations with real-time aggregation at national scale.", img:null },
+  { year:2024, cat:"freelance", client:"PON XXI SUMUT", company:"PT Belant Persada", title:"National Sports Event Infrastructure", role:"DevOps Engineer", platform:"On-Premise", tags:["Bare Metal K8s","On-Premise","GitLab CI","Ansible","Kubernetes"], desc:"Architected high-traffic on-premise Kubernetes infrastructure for national-scale sports data management. Automated deployment and ensured high availability under event-day peak load.", img:null },
+  { year:2024, cat:"freelance", client:"RSOJ Pertamina Makassar", company:"PT Medxa", title:"Secure Hospital Infrastructure", role:"DevOps Engineer", platform:"AWS", tags:["AWS","Site-to-Site VPN","Fortigate","On-Premise"], desc:"Engineered secure networking bridge between AWS Cloud and On-Premise data centers for Pertamina hospital. Implemented Site-to-Site VPN with Fortigate for encrypted data transmission.", img:null },
+  { year:2024, cat:"freelance", client:"Umrohin", company:"Freelance", title:"Scalable GCP Cloud Infrastructure", role:"DevOps Engineer", platform:"GCP", tags:["GCP","GKE","Kubernetes","GitHub Actions","Terraform","Ansible"], desc:"Designed and implemented scalable cloud infrastructure on GCP for Umrah travel platform. Managed VPC configurations and automated provisioning of managed Kubernetes services.", img:null },
+  { year:2024, cat:"freelance", client:"Bumitama Agri Ltd.", company:"PT Kreatif Technology Multiguna", title:"SPARTA Super Apps", role:"Technical Lead", platform:"Azure", tags:["Azure","Azure Functions","Azure Services","Azure DevOps","C#","Flutter"], desc:"Led technical architecture and development of enterprise super-app for the plantation industry. Managed complex data integration and serverless functions using the Azure ecosystem.", img:null },
+  { year:2024, cat:"freelance", client:"Bumitama Agri Ltd.", company:"PT Kreatif Technology Multiguna", title:"General Inspection Patroli", role:"Technical Lead", platform:"Azure", tags:["Azure","Azure Functions","Azure Data Factory","Azure DevOps","C#","Flutter"], desc:"Offline-First mobile inspection system for remote plantation field operations. Automated background sync to Azure once connectivity is restored.", img:null },
+  { year:2024, cat:"freelance", client:"GICE – Civil Engineering", company:"Bumitama Agri Ltd.", title:"General Inspection – Civil Engineering", role:"Full-Stack Developer", platform:"Azure", tags:["C#",".NET Core","Azure"], desc:"Full-stack development for civil engineering general inspection system at Bumitama Agri. Managed inspection workflows and reporting for plantation infrastructure.", img:null },
+  { year:2025, cat:"freelance", client:"RSMH Palembang", company:"PT Medxa", title:"Hospital-Critical Hybrid Cloud Infrastructure", role:"Platform & Infrastructure Engineer", platform:"OCI", tags:["OCI","Bare Metal","Docker Swarm","Ansible","GitLab CI","Site-to-Site VPN","ZeroTier","MinIO","Disaster Recovery"], desc:"Comprehensive hybrid cloud architecture for SIMRS hospital management system. Dual Site-to-Site VPN with ZeroTier SD-WAN failover. Zero downtime disaster recovery for critical healthcare data.", img:null },
+  { year:2025, cat:"freelance", client:"Biometric Security", company:"PT Medxa", title:"Hospital Face Recognition System", role:"Backend Engineer", platform:"OCI", tags:["Python","Milvus","MinIO","OCI","Docker"], desc:"Biometric identification for hospital security using Milvus vector database for face similarity search integrated with Python recognition models on OCI.", img:null },
+  { year:2025, cat:"freelance", client:"WOM Finance", company:"PT SIMTEK", title:"WOM Finance – DevOps Infrastructure", role:"DevOps Engineer", platform:"AWS", tags:["AWS","EKS","GitLab CI","Jenkins","SonarQube"], desc:"DevOps infrastructure management for WOM Finance. Implemented high availability and security compliance across production environments.", img:null },
+  { year:2025, cat:"freelance", client:"Indonesia Investment Authority (INA)", company:"PT SIMTEK", title:"INA – DevOps Infrastructure", role:"DevOps Engineer", platform:"AWS", tags:["AWS","EKS","GitLab CI","Jenkins"], desc:"DevOps infrastructure for Indonesia Investment Authority. Managed secure and compliant cloud infrastructure for government investment management platform.", img:null },
+  { year:2025, cat:"freelance", client:"SIMRS Infrastructure", company:"Central General Hospital Dr. Mohammad Hoesin", title:"SIMRS – Hybrid Oracle Cloud", role:"DevOps Engineer", platform:"OCI", tags:["OCI","Hybrid Oracle Cloud","On-Premise","Docker","Ansible"], desc:"Hybrid Oracle Cloud and On-Premise infrastructure for hospital information system (SIMRS) at the largest public hospital in South Sumatra.", img:null },
+  // ── PART TIME ──
+  { year:2024, cat:"parttime", client:"PT Inspirasi Bisnis Nusantara (HAUS!)", company:"Part-time", title:"Hybrid Cloud Cost Transformation", role:"DevOps Engineer", platform:"AWS", tags:["AWS","GCP","Bare Metal","Kubernetes","Terraform","Cloudflare Zero Trust","GitHub Actions","Prometheus","Grafana"], desc:"Led phased cloud optimization for Haus! Indonesia — first cutting AWS costs by 32%, then migrating to bare metal Kubernetes. Result: 85% OPEX savings.", img:null },
+];
+
+// ── FILTER STATE ──
+let filters = { cat: 'all', year: 'all', stack: 'all', role: 'all', search: '' };
+
+// ── BUILD FILTER OPTIONS ──
+const years   = [...new Set(projects.map(p=>p.year))].sort((a,b)=>b-a);
+const stacks  = [...new Set(projects.map(p=>p.platform))].sort();
+const roles   = [...new Set(projects.map(p=>p.role))].sort();
+
+function buildPills(containerId, items, filterKey) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = `<button class="pill active" data-val="all">All</button>` +
+    items.map(v => `<button class="pill" data-val="${v}">${v}</button>`).join('');
+  el.querySelectorAll('.pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      el.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filters[filterKey] = btn.dataset.val;
+      applyFilters();
+    });
+  });
+}
+buildPills('filterYear',  years,  'year');
+buildPills('filterStack', stacks, 'stack');
+buildPills('filterRole',  roles,  'role');
+
+document.getElementById('filterCat').querySelectorAll('.pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById('filterCat').querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filters.cat = btn.dataset.val;
+    applyFilters();
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  filters.search = e.target.value.toLowerCase();
+  applyFilters();
+});
+
+// ── BUILD CARDS ──
+const grid = document.getElementById('projGrid');
+projects.forEach(p => {
+  const card = document.createElement('div');
+  card.className = 'proj-card';
+  card.dataset.cat   = p.cat;
+  card.dataset.year  = p.year;
+  card.dataset.stack = p.platform;
+  card.dataset.role  = p.role;
+
+  const catLabel = p.cat === 'parttime' ? 'Part-time' : p.cat.charAt(0).toUpperCase() + p.cat.slice(1);
+  const visibleTags = p.tags.slice(0,3);
+  const extraTags   = p.tags.length > 3 ? p.tags.length - 3 : 0;
+
+  card.innerHTML = `
+    <div class="card-img">
+      ${p.img
+        ? `<img src="${p.img}" alt="${p.title}" loading="lazy" decoding="async">`
+        : `<div class="card-img-placeholder"><span class="placeholder-label">$ ${p.client.substring(0,18).toLowerCase().replace(/\s/g,'.')}</span></div>`}
+      <span class="cat-badge ${p.cat}">${catLabel}</span>
+      <div class="card-img-overlay"><span class="overlay-btn">View Details →</span></div>
+    </div>
+    <div class="card-body">
+      <div class="card-top">
+        <span class="card-year">${p.year}</span>
+        <span class="card-role-badge">${p.role.split(' ').slice(-1)[0]}</span>
+      </div>
+      <div class="card-client">${p.client}</div>
+      <div class="card-company">${p.company}</div>
+      <div class="card-title">${p.title}</div>
+      <div class="card-tags">
+        ${visibleTags.map(t=>`<span class="tag">${t}</span>`).join('')}
+        ${extraTags ? `<span class="tag">+${extraTags}</span>` : ''}
+      </div>
+    </div>
+  `;
+  card.addEventListener('click', () => openModal(p));
+  grid.appendChild(card);
+});
+
+document.getElementById('totalCount').textContent = projects.length;
+
+// ── APPLY FILTERS ──
+function applyFilters() {
+  const cards = grid.querySelectorAll('.proj-card');
+  let vis = 0;
+  cards.forEach(card => {
+    const matchCat   = filters.cat   === 'all' || card.dataset.cat   === filters.cat;
+    const matchYear  = filters.year  === 'all' || card.dataset.year  === filters.year;
+    const matchStack = filters.stack === 'all' || card.dataset.stack === filters.stack;
+    const matchRole  = filters.role  === 'all' || card.dataset.role  === filters.role;
+    const matchSearch = !filters.search || card.textContent.toLowerCase().includes(filters.search);
+    const show = matchCat && matchYear && matchStack && matchRole && matchSearch;
+    card.classList.toggle('hidden', !show);
+    if(show) vis++;
+  });
+  document.getElementById('visCount').textContent = vis;
+
+  // no results
+  const existing = grid.querySelector('.no-results');
+  if(existing) existing.remove();
+  if(vis === 0) {
+    grid.innerHTML += `<div class="no-results">No projects found for <span>"${filters.search || 'selected filters'}"</span></div>`;
+  }
+
+  updateFilterBar();
+}
+
+function updateFilterBar() {
+  const bar = document.getElementById('filterBar');
+  bar.innerHTML = '';
+  const active = Object.entries(filters).filter(([k,v]) => v !== 'all' && v !== '');
+  if(active.length === 0) return;
+
+  active.forEach(([key, val]) => {
+    const chip = document.createElement('div');
+    chip.className = 'active-chip';
+    chip.innerHTML = `<span>${key}: ${val}</span><button onclick="clearFilter('${key}')">✕</button>`;
+    bar.appendChild(chip);
+  });
+
+  const clearBtn = document.createElement('button');
+  clearBtn.className = 'clear-all';
+  clearBtn.textContent = 'Clear all';
+  clearBtn.addEventListener('click', clearAllFilters);
+  bar.appendChild(clearBtn);
+}
+
+window.clearFilter = function(key) {
+  filters[key] = key === 'search' ? '' : 'all';
+  if(key === 'search') document.getElementById('searchInput').value = '';
+  // reset pill
+  const map = { cat:'filterCat', year:'filterYear', stack:'filterStack', role:'filterRole' };
+  if(map[key]) {
+    document.getElementById(map[key]).querySelectorAll('.pill').forEach(b => {
+      b.classList.toggle('active', b.dataset.val === 'all');
+    });
+  }
+  applyFilters();
+};
+
+function clearAllFilters() {
+  filters = { cat:'all', year:'all', stack:'all', role:'all', search:'' };
+  document.getElementById('searchInput').value = '';
+  ['filterCat','filterYear','filterStack','filterRole'].forEach(id => {
+    document.getElementById(id).querySelectorAll('.pill').forEach(b => {
+      b.classList.toggle('active', b.dataset.val === 'all');
+    });
+  });
+  applyFilters();
+}
+
+// init count
+document.getElementById('visCount').textContent = projects.length;
+
+// ── MODAL ──
+function openModal(p) {
+  const accentColor = p.cat === 'freelance' ? 'var(--accent3)' : p.cat === 'parttime' ? 'var(--purple)' : 'var(--accent2)';
+  document.getElementById('mTopBar').style.background = accentColor;
+  document.getElementById('mYear').textContent    = p.year;
+  document.getElementById('mClient').textContent  = p.client;
+  document.getElementById('mClient').style.color  = accentColor;
+  document.getElementById('mCompany').textContent = p.company;
+  const catEl = document.getElementById('mCat');
+  catEl.textContent  = p.cat === 'parttime' ? 'Part-time' : p.cat.charAt(0).toUpperCase() + p.cat.slice(1);
+  catEl.className = `m-cat ${p.cat}`;
+  document.getElementById('mTitle').textContent   = p.title;
+  document.getElementById('mRole').textContent    = p.role;
+  document.getElementById('mDesc').textContent    = p.desc;
+  document.getElementById('mTags').innerHTML      = p.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+  document.getElementById('mImg').innerHTML = p.img
+    ? `<img src="${p.img}" alt="${p.title}">`
+    : `<div class="modal-img-placeholder"><span style="font-size:11px;letter-spacing:2px;color:${accentColor};font-family:var(--mono)">$ ls ./${p.client.toLowerCase().replace(/\s/g,'.')}</span></div>`;
+
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+document.getElementById('modalClose').addEventListener('click', () => {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+});
+document.getElementById('modalOverlay').addEventListener('click', e => {
+  if(e.target === document.getElementById('modalOverlay')) {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
+document.addEventListener('keydown', e => { if(e.key === 'Escape') { document.getElementById('modalOverlay').classList.remove('active'); document.body.style.overflow = ''; } });
+
+// ── THEME ──
+const html = document.documentElement;
+function applyTheme(t) { html.setAttribute('data-theme',t); document.getElementById('toggleIcon').textContent = t==='light'?'🌙':'☀️'; try{localStorage.setItem('theme',t);}catch(e){} }
+applyTheme(localStorage.getItem('theme')||'dark');
+document.getElementById('themeToggle').addEventListener('click', () => applyTheme(html.getAttribute('data-theme')==='light'?'dark':'light'));
+</script>
+</body>
+</html>
