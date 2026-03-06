@@ -148,12 +148,7 @@ h1 { font-family: var(--display); font-size: clamp(24px, 3.5vw, 38px); font-weig
   font-size: 9px; color: rgba(255,255,255,0.7);
   padding: 2px 7px; border-radius: 2px; letter-spacing: 1px; z-index: 4;
 }
-.overlay-btn {
-  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--white); border: 1px solid rgba(255,255,255,0.3);
-  padding: 6px 14px; background: rgba(255,255,255,0.06);
-  /* PERF: no backdrop-filter */
-}
+
 
 /* category badge — PERF: no backdrop-filter */
 .cat-badge {
@@ -195,19 +190,13 @@ h1 { font-family: var(--display); font-size: clamp(24px, 3.5vw, 38px); font-weig
 .proj-card[data-cat="freelance"]:hover .card-title { color: var(--accent3); }
 .proj-card[data-cat="parttime"]:hover  .card-title { color: var(--purple); }
 
-.card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; padding-top: 4px; }
-.tag {
-  font-family: var(--mono); font-size: 9px; color: var(--text-dim);
-  border: 1px solid var(--border); padding: 2px 6px; letter-spacing: 0.03em;
-  transition: border-color 0.2s, color 0.2s, transform 0.2s; display: inline-block;
-}
+
 .proj-card[data-cat="fulltime"]:hover  .tag { border-color: var(--accent2); color: var(--accent2); transform: translateY(-1px); }
 .proj-card[data-cat="freelance"]:hover .tag { border-color: var(--accent3); color: var(--accent3); transform: translateY(-1px); }
 .proj-card[data-cat="parttime"]:hover  .tag { border-color: var(--purple);  color: var(--purple);  transform: translateY(-1px); }
-.card-tags .tag:nth-child(1) { transition-delay: 0ms; }
-.card-tags .tag:nth-child(2) { transition-delay: 20ms; }
-.card-tags .tag:nth-child(3) { transition-delay: 40ms; }
-.card-tags .tag:nth-child(4) { transition-delay: 60ms; }
+
+.modal-tags:hover  .tag { border-color: var(--accent2); color: var(--accent3); transform: translateY(-1px); }
+
 
 /* ── MODAL ── */
 .modal-overlay {
@@ -264,24 +253,9 @@ h1 { font-family: var(--display); font-size: clamp(24px, 3.5vw, 38px); font-weig
   transition: background 0.2s, transform 0.2s;
 }
 .modal-carousel-dots .dot.active { background: #fff; transform: scale(1.3); }
-.modal-img-counter {
-  position: absolute; top: 10px; right: 10px;
-  background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.2);
-  font-size: 10px; color: rgba(255,255,255,0.8);
-  padding: 3px 9px; border-radius: 2px; z-index: 4;
-  font-family: var(--mono); letter-spacing: 1px;
-}
 
 .modal-inner { padding: 24px 28px 28px; }
-.modal-close {
-  position: absolute; top: 10px; right: 10px;
-  background: rgba(0,0,0,0.6); border: 1px solid var(--border2);
-  color: var(--text-dim); width: 28px; height: 28px;
-  border-radius: 2px; cursor: pointer; font-size: 13px;
-  display: flex; align-items: center; justify-content: center;
-  transition: border-color 0.15s, color 0.15s; z-index: 5;
-}
-.modal-close:hover { border-color: var(--accent); color: var(--white); }
+
 
 .modal-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
 .m-year { font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; margin-bottom: 3px; }
@@ -292,13 +266,7 @@ h1 { font-family: var(--display); font-size: clamp(24px, 3.5vw, 38px); font-weig
 .m-cat.freelance { background: rgba(127,255,107,0.10); color: var(--accent3); border: 1px solid rgba(127,255,107,0.25); }
 .m-cat.parttime  { background: rgba(167,139,250,0.10); color: var(--purple);  border: 1px solid rgba(167,139,250,0.25); }
 
-.modal-title { font-family: var(--display); font-size: 19px; font-weight: 800; color: var(--white); letter-spacing: -0.3px; margin-bottom: 6px; line-height: 1.2; }
-.modal-role { display: inline-flex; padding: 3px 10px; border: 1px solid rgba(0,229,255,0.2); background: rgba(0,229,255,0.06); border-radius: 2px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
-.modal-divider { height: 1px; background: var(--border); margin-bottom: 14px; }
-.modal-desc { font-size: 12px; line-height: 1.85; color: var(--text-muted); font-weight: 300; margin-bottom: 16px; }
-.modal-stack-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 8px; }
-.modal-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-.modal-tags .tag { font-size: 10px; padding: 3px 9px; }
+
 
 .modal::-webkit-scrollbar { width: 3px; }
 .modal::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }

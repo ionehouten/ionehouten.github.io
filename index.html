@@ -4,14 +4,19 @@
 <head>
 <meta charset="UTF-8">
   <script>try{var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Iwan Setiawan — Hybrid Cloud & Platform Architect</title>
-<link rel="icon" href="./images/favicon.ico" />
-<link rel="apple-touch-icon" href="./images/kangservice.jpg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<!-- <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"> -->
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles/main.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Iwan Setiawan — Hybrid Cloud & Platform Architect" />
+  <meta property="og:description" content="Hybrid Cloud & Platform Engineer with 13+ years of experience. Specializing in multi-cloud architecture, Kubernetes, and cost optimization (up to 85% OPEX reduction)." />
+  <meta property="og:image" content="https://ionehouten.github.io/images/pp.jpg" />
+  <meta property="og:url" content="https://portfolio.kangservice.cloud/" />
+  <meta property="og:type" content="website" />
+  <title>Iwan Setiawan — Hybrid Cloud & Platform Architect</title>
+  <link rel="icon" href="./images/favicon.ico" />
+  <link rel="apple-touch-icon" href="./images/kangservice.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/main.css" />
 </head>
 <body>
 
@@ -113,7 +118,7 @@
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-num"><span class="accent">10</span>+</div>
+          <div class="stat-num"><span class="accent">13</span>+</div>
           <div class="stat-label">Years Experience</div>
         </div>
         <div class="stat">
@@ -572,7 +577,7 @@
       <img src="./images/aws-arc.png" height="120"/>
       <div class="cert-name">AWS Advanced<br>Training</div>
       <div class="cert-meta">Cloud Computing ·  Architecting <br>EKS · Serverless</div>
-      <div class="cert-valid done">Completed</div>
+      <div class="cert-valid done"></div>
     </div>
 
     <!-- Google Cloud -->
@@ -799,30 +804,34 @@
       year: "2023 – Present", client: "Haus! Indonesia", company: "PT Inspirasi Bisnis Nusantara",
       role: "Senior DevOps Engineer", title: "Hybrid Cloud Cost Transformation",
       desc: "Architected and implemented hybrid infrastructure for a fast-growing F&B chain was overspending on cloud by 3x. Led phased optimization — first cutting AWS costs by 32%, then engineering a full migration to bare metal Kubernetes. Implemented Cloudflare Zero Trust to eliminate public management exposure. Result: 85% OPEX savings.",
+      detailDesc: `Problem\nInherited a chaotic AWS architecture with significant resource oversizing across compute and services — infrastructure costs were running far beyond what the workload actually demanded.\n\nSolution\nConducted a full infrastructure audit and rightsized all oversized resources, cutting AWS spend by 32%. Architected a strategic migration of core workloads — backend, middleware, and database — to Bare metal, while retaining AWS for edge services (CloudFront, S3, static frontend). Deployed Kubernetes across bare metal with Cloudflare Zero Trust eliminating all public management exposure.\n\nImpact\n• Reduced AWS expenditure by 32% through rightsizing and resource optimization\n• Achieved 85% total OPEX reduction by migrating core workloads to bare metal\n• Maintained AWS edge layer (CloudFront, S3) for performance-critical static delivery\n• Eliminated public management surface via Cloudflare Zero Trust architecture`,
       tags: ["AWS","Bare Metal","Kubernetes","Terraform","Cloudflare Zero Trust","GitHub Actions","Prometheus","Grafana"],
       metricNum: "↓85%", metricSub: "OPEX Reduction",
-      imgs: ['./images/haus-1.webp','./images/haus-2.webp'], imgLabel: "haus.indonesia"
+      imgs: ['./images/haus-1.webp','./images/arch/k8s_baremetal.webp'], imgLabel: "haus.indonesia"
     },
     {
-      year: "2024 – 2025", client: "Multi-Client | Confidential", company: "PT Simtek -> PT Merkle Innovation ",
+      year: "2024 – 2025", client: "F&B, Financial & Government Sectors | Confidential Clients", company: "PT Simtek -> PT Merkle Innovation ",
       role: "Senior DevOps Engineer", title: "Enterprise Multi-Client DevOps",
       desc: "Managed and optimized cloud infrastructure for multiple enterprise clients across F&B, financial services, and government sectors. Implemented CI/CD pipelines, container orchestration, and infrastructure automation while ensuring high availability and security compliance across production environments.",
+      detailDesc: `Problem\nMultiple enterprise clients across F&B, financial services, and government required consistent DevOps support — each with distinct compliance requirements, traffic demands, and security standards.\n\nSolution\nProvided dedicated DevOps support across 4+ enterprise clients. Managed CI/CD pipelines, container orchestration, and day-to-day infrastructure operations while maintaining platform stability and security compliance across all production environments.\n\nImpact\n• Maintained high availability across 4+ enterprise production environments\n• Streamlined CI/CD workflows reducing deployment friction across client portfolios\n• Ensured security and compliance standards met across financial and government sectors`,
       tags: ["AWS","ECS","EKS","GitLab CI","Jenkins","SonarQube"],
       metricNum: "4+", metricSub: "Enterprise Clients",
       imgs: ['./images/arch/backup_aws.webp'], imgLabel: "simtek.enterprise"
     },
     {
-      year: "2025", client: "Major Public Hospital", company: "PT Medxa",
+      year: "2025", client: "Major Public Hospital | Confidential Client", company: "PT Medxa",
       role: "Platform & Infrastructure Engineer", title: "Hospital-Critical Hybrid Cloud Infrastructure",
       desc: "Architected and implemented comprehensive end-to-end hybrid cloud architecture (On-premise Bare Metal + OCI) for SIMRS Hospital Management System with site-to-site VPN for data plane connectivity and ZeroTier for secure management plane access (ZTNA), enabling both reliable data sync and zero-trust administrative access.",
+      detailDesc: `Problem\nA major public hospital required a reliable, secure hybrid infrastructure for their SIMRS — a system where any downtime directly impacts patient care and operational continuity.\n\nSolution\nArchitected a comprehensive end-to-end hybrid cloud platform connecting on-premise bare metal and OCI through dual Site-to-Site VPN for data plane integrity. Layered ZeroTier SD-WAN for zero-trust management access with automatic failover. Designed and implemented disaster recovery strategy from the ground up.\n\nImpact\n• Achieved zero downtime for critical healthcare data and SIMRS operations\n• Established dual-path connectivity — Site-to-Site VPN for data plane and ZeroTier for secure management plane access\n• Implemented regulatory-grade DR ensuring business continuity for patient-critical systems`,
       tags: ["OCI","Bare Metal","Docker Swarm","Ansible","GitLab CI","Site-to-Site VPN","ZeroTier","MinIO"],
       metricNum: "Hybrid", metricSub: "OCI & On-Premise",
       imgs: ['./images/arch/hybrid.webp','./images/rsmh-2.webp','./images/rsmh-3.webp','./images/rsmh-4.webp'], imgLabel: "hybrid-cloud"
     },
     {
-      year: "2024", client: "Biometric Security", company: "PT Medxa",
+      year: "2024", client: "Biometric Security | Confidential Client", company: "PT Medxa",
       role: "Backend Engineer", title: "Hospital Face Recognition System",
       desc: "Deployed biometric identification for hospital security. Milvus as vector database for efficient face similarity search integrated with Python recognition models on OCI.",
+      detailDesc: `Problem\nManual identity verification in a high-traffic hospital environment created security gaps, bottlenecks at entry points, and operational inefficiencies that impacted both staff and patient flow.\n\nSolution\nDesigned and deployed a biometric face recognition system using Milvus as the vector database for efficient face similarity search, integrated with Python-based recognition models running on OCI infrastructure.\n\nImpact\n• Eliminated manual identity verification bottlenecks at hospital entry points\n• Achieved accurate real-time biometric identification at scale\n• Improved security posture with automated, tamper-resistant access control`,
       tags: ["Python","Milvus","MinIO","OCI","Docker"],
       metricNum: "Vector", metricSub: "Search · Biometric",
       imgs: ['./images/fr-1.webp'], imgLabel: "medxa.biometric"
@@ -831,22 +840,25 @@
       year: "2024", client: "Plantation Enterprise | Confidential Client", company: "PT Kreatif Teknologi Multiguna",
       role: "Technical Lead", title: "SPARTA Super Apps",
       desc: "Led technical architecture and development of an enterprise super-app for the plantation industry. Managed complex data integration and serverless functions using the Azure ecosystem across multiple business platforms.",
+      detailDesc: `Problem\nThe plantation enterprise needed more than just a new application — they needed a standardized, scalable foundation that could serve as the architectural base for modernizing multiple legacy systems across the organization.\n\nSolution\nArchitected SPARTA from the ground up as an enterprise application framework on Azure — designing the full backend and frontend stack using Azure Functions, .NET, and Flutter. Built not just as a standalone app, but as a reusable platform foundation: standardized patterns, shared services, and consistent DevOps governance via Azure DevOps that other applications could migrate onto and inherit.\n\nImpact\n• Designed and delivered a full enterprise framework from zero — backend, frontend, and infrastructure\n• Established SPARTA as the standard migration target for legacy applications across the organization\n• Reduced future application development and migration overhead through reusable architecture patterns\n• Built scalable Azure-native foundation supporting multi-app deployment under unified governance`,
       tags: ["Azure","Azure Functions","Azure DevOps","C#","Flutter"],
       metricNum: "Azure", metricSub: "Serverless Arch",
-      imgs: ['./images/arch/azure_data_factory.webp'], imgLabel: "superapps.sparta"
+      imgs: ['./images/arch/azure_stack.webp'], imgLabel: "superapps.sparta"
     },
     {
       year: "2024", client: "Plantation Enterprise | Confidential Client", company: "PT Kreatif Teknologi Multiguna",
       role: "Technical Lead", title: "General Inspection Patroli",
       desc: "Led technical architecture and directed development of an Offline-First mobile inspection and patrol system for remote plantation areas. Automated background synchronization to Azure once connectivity is restored.",
+      detailDesc: `Problem\nThe existing field inspection system was built on legacy PHP running on conventional VMs — slow, difficult to maintain, and unable to support remote field operations where network connectivity is unreliable or unavailable entirely.\n\nSolution\nMigrated the General Inspection Patrol system from legacy PHP and VM infrastructure onto the SPARTA framework. Redesigned as an offline-first mobile application using Flutter, with local data storage handling all field operations independently of network availability. Data is submitted by the user once connectivity is available — Azure Data Factory orchestrates the pipeline from submission to reporting.\n\nImpact\n• Migrated legacy PHP and VM-based system to modern cloud-native stack on SPARTA framework\n• Eliminated data loss from connectivity gaps — all data stored locally until user submits\n• Enabled reliable field operations in remote areas with no dependency on network availability\n• Delivered as first successful migration onto SPARTA, validating the framework at production scale`,
       tags: ["Azure","Azure Functions","Azure Data Factory","Azure DevOps","Flutter"],
       metricNum: "Offline", metricSub: "First Architecture",
-      imgs: ['./images/arch/azure_data_factory.webp'], imgLabel: "plantation.patrol"
+      imgs: ['./images/arch/azure_data_factory.webp','./images/project/gip_1.webp'], imgLabel: "plantation.patrol"
     },
     {
       year: "2024", client: "Private Healthcare Institution | Confidential Client", company: "PT Medxa",
       role: "Senior DevOps Engineer", title: "Secure Hospital Infrastructure",
       desc: "Engineered a secure networking bridge between AWS Cloud and On-Premise data centers. Implemented Site-to-Site VPN with Fortigate for seamless encrypted data transmission between environments.",
+      detailDesc: `Problem\nA private healthcare institution required secure, encrypted connectivity between AWS cloud and on-premise data centers — with zero public exposure for sensitive patient and operational data in transit.\n\nSolution\nDesigned and implemented a secure networking bridge using Site-to-Site VPN with Fortigate, establishing fully encrypted data transmission between AWS and on-premise environments with no public-facing endpoints.\n\nImpact\n• Achieved zero public exposure across all cloud-to-on-premise data transmission\n• Established encrypted, compliant connectivity for sensitive healthcare data\n• Eliminated attack surface on management and data planes`,
       tags: ["AWS","Site-to-Site VPN","Fortigate","On-Premise"],
       metricNum: "Zero", metricSub: "Public Exposure",
       imgs: ['./images/arch/s2s_aws_onpremise.webp'], imgLabel: "hospital.vpn"
@@ -855,6 +867,7 @@
       year: "2024", client: "PON XXI SUMUT", company: "PT Belant Persada",
       role: "Senior DevOps Engineer", title: "National Sports Event Infrastructure",
       desc: "Architected and managed high-traffic on-premise Kubernetes infrastructure for national-scale sports data management. Ensured high availability under event-day peak load.",
+      detailDesc: `Problem\nA national-scale sports event required infrastructure capable of handling unpredictable traffic spikes during live data management — with zero tolerance for downtime or performance degradation on event day.\n\nSolution\nArchitected high-availability on-premise Kubernetes infrastructure specifically designed for peak-load absorption. Implemented automated deployments via GitLab CI and Ansible, with redundancy and failover built into the platform architecture from day one.\n\nImpact\n• Sustained high availability throughout the national event with zero downtime\n• Handled peak traffic spikes without performance degradation\n• Delivered fully automated deployment pipeline reducing operational risk on event day`,
       tags: ["Bare Metal K8s","On-Premise","GitLab CI","Ansible"],
       metricNum: "National", metricSub: "Scale · On-Premise",
       imgs: ['./images/ponaceh-1.webp'], imgLabel: "pon-xxi.infra"
@@ -862,7 +875,8 @@
     {
       year: "2024", client: "Indonesia 2024 Election", company: "PT Kreatif Teknologi Multiguna",
       role: "Technical Lead & Backend Engineer", title: "Realcount – Election Tabulation",
-      desc: "Led technical architecture and directed development a robust data entry and tabulation platform for 2024 election results. Engineered a high-concurrency Golang backend handling simultaneous submissions from thousands of polling stations.",
+      desc: "Architected and led technical architecture and directed development a robust data entry and tabulation platform for 2024 election results. Engineered a high-concurrency Golang backend handling simultaneous submissions from thousands of polling stations.",
+      detailDesc: `Problem\nThe 2024 national election required a reliable platform for manual vote tallying across thousands of polling stations (TPS) — each station recording per-candidate vote counts locally, with results needing to be submitted, aggregated, and displayed accurately at national scale in near real time.\n\nSolution\nArchitected and led development of a high-concurrency tabulation backend in Golang, designed to handle simultaneous submissions from thousands of TPS nationwide. Each station submits per-candidate counts  — the system aggregates results in real time as submissions arrive. Deployed on Kubernetes with automated pipelines ensuring platform stability throughout the election period. Supported multi-party result recording across all participating parties.\n\nImpact\n• Handled simultaneous submissions from thousands of polling stations without queuing or lag\n• Delivered accurate real-time aggregation of per-candidate, per-TPS vote counts at national scale\n• Supported multi-party recording with data integrity maintained throughout the entire election period`,
       tags: ["Golang","Kubernetes","GitHub Actions","Ansible"],
       metricNum: "Real-Time", metricSub: "High Concurrency",
       imgs: ['./images/rc-1.webp','./images/rc-2.webp','./images/rc-3.webp','./images/rc-4.webp'], imgLabel: "pemilu.realcount"
@@ -870,15 +884,17 @@
     {
       year: "2023", client: "Crypto Exchange Platform | Confidential Client", company: "PT SIMTEK",
       role: "DevOps Engineer", title: "High-Security Crypto Exchange Infra",
-      desc: "Implemented and managed production EKS cluster for a crypto trading platform. Security hardening with WAF & Shield. Managed complex microservices with Vault secrets management and zero public exposure.",
+      desc:"Architected a production EKS cluster for a crypto trading platform with security layered at every level — WAF and Shield at the edge, HashiCorp Vault for secrets management, Kong API Gateway, and zero public exposure across all services.",
+      detailDesc: `Problem\nA crypto trading platform required production-grade infrastructure with security as a first-class concern — high-value targets demand hardened architecture from day one, not retrofitted security patches.\n\nSolution\nArchitected a production EKS cluster with security built in at every layer: WAF and Shield at the edge, HashiCorp Vault for secrets management, Kustomize for environment consistency, and zero public exposure across all services and management interfaces.\n\nImpact\n• Achieved zero public exposure across all services and management planes\n• Established secrets management eliminating hardcoded credentials across microservices\n• Delivered production-hardened infrastructure ready for live trading from launch day`,
       tags: ["AWS EKS","Terraform","Vault","WAF","Kustomize","Prometheus","Loki"],
       metricNum: "Zero", metricSub: "Public Exposure",
-      imgs: ['./images/arch/blockchain.webp'], imgLabel: "Crypto Exchange Platform.eks"
+      imgs: ['./images/arch/blockchain.webp'], imgLabel: "crypto.eks"
     },
     {
       year: "2023", client: "Cloami Apparel Manufacturing", company: "PT Sahaware Indonesia",
       role: "DevOps Engineer", title: "Cloami – Manufacturing Platform",
       desc: "Architected scalable production environment on Google Cloud for apparel manufacturing operations. Implemented full IaC for consistent environment provisioning and automated deployment workflows.",
+      detailDesc: `Problem\nAn apparel manufacturing platform required consistent, reliable infrastructure that could scale alongside production operations — manual provisioning and environment inconsistencies were creating deployment risk and operational overhead.\n\nSolution\nArchitected a fully IaC-driven environment on GKE using Terraform, Ansible, and Kustomize. Every environment reproducible from code, every deployment automated through GitLab CI — eliminating manual provisioning and configuration drift entirely.\n\nImpact\n• Eliminated environment drift with fully version-controlled IaC across all deployments\n• Reduced provisioning time and operational overhead through full infrastructure automation\n• Established consistent, repeatable deployment pipeline supporting manufacturing scale`,
       tags: ["GCP","GKE","Terraform","Ansible","Kustomize","GitLab CI"],
       metricNum: "IaC", metricSub: "Full Infra Auto",
       imgs: ['./images/cloami.jpeg'], imgLabel: "cloami.gcp"
@@ -887,6 +903,7 @@
       year: "2022", client: "MyDigilearn", company: "Telkom Corporate University · PT Metranet",
       role: "DevOps Engineer", title: "Learning Platform Modernization",
       desc: "Architected and implemented a comprehensive modernization of the learning platform. Migrated legacy PM2 services to EKS. Resolved critical DB bottlenecks with Aurora + connection pooling. Validated for 100k concurrent users under peak traffic with full CI/CD pipelines.",
+      detailDesc: `Problem\nThe learning platform was critically underperforming before any infrastructure work began — CPU constantly at 100%, database connections consistently maxed out, and response times were degraded even under fewer than 100 concurrent users. The platform was effectively unusable at scale.\n\nSolution\nLeveraging a software engineering background alongside DevOps expertise, conducted a deep-dive diagnosis that uncovered the root cause: a bug in the application code driving PostgreSQL CPU to 100% under load. Fixed the underlying bug first, then architected the full infrastructure modernization — migrating from legacy PM2 services to Amazon EKS, redesigning the database layer with Aurora and connection pooling, and establishing automated CI/CD pipelines. Validated the rebuilt platform for 100k concurrent users through comprehensive load testing.\n\nImpact\n• Identified and resolved root-cause application bug causing PostgreSQL CPU saturation\n• Restored platform performance from sub-100 user degradation to 100k concurrent user capacity\n• Eliminated database connection exhaustion through Aurora and connection pooling redesign\n• Delivered fully modernized, load-tested infrastructure ready for Telkom-scale traffic`,
       tags: ["AWS EKS","Amazon Aurora","Jenkins","ELK Stack","SonarQube"],
       metricNum: "100K", metricSub: "Concurrent Users",
       imgs: ['./images/mdl-0.webp','./images/arch/perf_jenkins_k8s.webp'], imgLabel: "metranet.eks"
@@ -1011,7 +1028,11 @@
     document.getElementById('mMetricSub').textContent = p.metricSub;
     document.getElementById('mTitle').textContent = p.title;
     document.getElementById('mRole').textContent = "Role: " + p.role;
-    document.getElementById('mDesc').textContent = p.desc;
+    document.getElementById('mDesc').innerHTML = (p.detailDesc || p.desc)
+      .replace(/\n/g, '<br>')
+      .replace(/\bProblem\b/g, '<span class="detail-problem">Problem</span>')
+      .replace(/\bSolution\b/g, '<span class="detail-solution">Solution</span>')
+      .replace(/\bImpact\b/g, '<span class="detail-impact">Impact</span>');
     document.getElementById('mTags').innerHTML = p.tags.map(t=>`<span class="tag">${t}</span>`).join('');
 
     // build modal carousel

@@ -243,40 +243,151 @@
 <script>
 const projects = [
   // ── FULLTIME – BELANT PERSADA ──
-  { year:2013, cat:"fulltime", client:"Indonesian Government Institution", company:"PT Belant Persada", title:"Polyclinic Application", role:"Full-Stack Developer", platform:"On-Premise", tags:["PHP","CodeIgniter","On-Premise"], desc:"Developed polyclinic management application for Indonesian Government Institution. Handled patient records, appointments, and medical data management.", imgs:[] },
-  { year:2014, cat:"fulltime", client:"Government Finance Ministry", company:"PT Belant Persada", title:"National Asset Management System", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#","DevExpress","Desktop App","On-Premise"], desc:"Desktop application for state asset management across the Ministry of Finance. Handled asset registration, depreciation, and reporting.", imgs:[] },
-  { year:2016, cat:"fulltime", client:"Government Sports Authority", company:"PT Belant Persada", title:"PON XIX & PEPARNAS XV Jawa Barat", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#","DevExpress","Desktop App"], desc:"Developed desktop application for PON XIX & PEPARNAS XV event management in Jawa Barat. Managed athlete data, scheduling, and results tabulation.", imgs:[] },
-  { year:2017, cat:"fulltime", client:"National Law Enforcement Agency", company:"PT Belant Persada", title:"Business Intelligence – Police Report", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#","ASP.NET","Power BI","On-Premise"], desc:"Built business intelligence dashboard for National Law Enforcement Agency. Integrated Power BI for crime data visualization and reporting analytics.", imgs:[] },
-  { year:2017, cat:"fulltime", client:"Government Finance Ministry", company:"PT Belant Persada", title:"SIKNL – Other State Assets Management", role:"Full-Stack Developer", platform:"On-Premise", tags:["Java","Spring MVC","On-Premise"], desc:"Developed state assets management system for Ministry of Finance. Handled non-land asset lifecycle from procurement to disposal.", imgs:[] },
-  { year:2018, cat:"fulltime", client:"Government Infrastructure Ministry", company:"PT Belant Persada", title:"SP3A – Budget Planning & Execution Control", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#","DevExpress","ASP.NET MVC","On-Premise"], desc:"Budget planning and execution control system for Ministry of Public Works. Managed project budgets, disbursement tracking, and financial reporting.", imgs:[] },
-  { year:2019, cat:"fulltime", client:"Financial Institution Pension Fund", company:"PT Belant Persada", title:"Billing Scorecard System", role:"Full-Stack Developer", platform:"On-Premise", tags:["Java","Spring Boot","On-Premise"], desc:"Billing and scorecard system for Financial Institution Pension Fund (Bank Indonesia Pension Fund). Managed billing cycles, payment tracking, and performance scorecards.", imgs:[] },
-  { year:2019, cat:"fulltime", client:"State-Owned Port & Logistics Company", company:"PT Belant Persada", title:"Single Interface Billing", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#",".NET Core","Talend ESB","PHP","Phalcon","On-Premise"], desc:"Unified billing interface for State-Owned Port & Logistics Company. Integrated multiple billing systems via ESB for streamlined logistics billing.", imgs:[] },
-  { year:2020, cat:"fulltime", client:"Internal Product", company:"PT Belant Persada", title:"Smart Water System", role:"Full-Stack Developer", platform:"GCP", tags:["Python","C#",".NET Core","Google Cloud IoT","GCP"], desc:"IoT-based smart water management system leveraging Google Cloud IoT Core. Monitored water quality and flow data with real-time event-driven alerts.", imgs:[] },
-  { year:2020, cat:"fulltime", client:"Internal Services", company:"PT Belant Persada", title:"OAuth 2.0 Server", role:"Backend Engineer", platform:"On-Premise", tags:["Golang","Gin","OAuth 2.0","On-Premise"], desc:"Built internal OAuth 2.0 authorization server in Golang. Provided centralized identity and access management across internal services.", imgs:[] },
-  { year:2021, cat:"fulltime", client:"Internal Services", company:"PT Belant Persada", title:"Internal Framework – Backend API & Frontend", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#",".NET Core","On-Premise"], desc:"Developed internal framework for backend API and frontend standards. Established reusable components and development conventions across projects.", imgs:[] },
-  { year:2021, cat:"fulltime", client:"Internal Product", company:"PT Belant Persada", title:"Smart Parking System", role:"Backend Engineer", platform:"On-Premise", tags:["Golang","Gin","On-Premise"], desc:"Backend API for smart parking management system. Handled real-time slot detection, booking, and payment processing.", imgs:[] },
-  { year:2022, cat:"fulltime", client:"Telkom Corporate University", company:"PT Metranet", title:"MyDigilearn Indonesia", role:"DevOps Engineer", platform:"AWS", tags:["AWS","EKS","Aurora","Jenkins","Prometheus","Grafana","Elasticsearch","Ansible"], desc:"Setup DevOps on AWS Cloud for Telkom CorpU product. Architected Kubernetes Cluster with comprehensive monitoring using Prometheus & Grafana and centralized logging via ELK stack.", imgs:[] },
-  { year:2022, cat:"fulltime", client:"Fintech Platform", company:"PT SIMTEK", title:"Fintech Platform – AWS DevOps Setup", role:"DevOps Engineer", platform:"AWS", tags:["AWS","Docker","GitLab CI","VPC","EC2","RDS","Load Balancer","Lambda"], desc:"Setup DevOps infrastructure on AWS Cloud for Fintech Platform. Implemented Docker-based architecture with GitLab CI pipeline and managed AWS services including EC2, RDS, and Lambda.", imgs:[] },
-  { year:2023, cat:"fulltime", client:"Membership Binary", company:"PT SIMTEK", title:"Membership Binary – ID Cloudhost", role:"DevOps Engineer", platform:"IDCloudHost", tags:["IDCloudHost","Docker","GitLab CI","Ansible","VM Instance"], desc:"Setup DevOps infrastructure on ID Cloudhost for Membership Binary platform. Implemented Docker architecture with GitLab CI pipeline and Ansible automation.", imgs:[] },
-  { year:2023, cat:"fulltime", client:"Crypto Exchange Platform", company:"PT SIMTEK", title:"High-Security Crypto Exchange Infra", role:"DevOps Engineer", platform:"AWS", tags:["AWS","EKS","WAF","Terraform","Kustomize"], desc:"Architected production EKS cluster for crypto trading platform. Security hardening with WAF & Shield. Complex microservices with Vault secrets management, Kong API Gateway, and zero public exposure.", imgs:[] },
+  { year:2013, cat:"fulltime", client:"Indonesian Government Institution | Confidential Client", company:"PT Belant Persada", title:"Polyclinic Application", role:"Full-Stack Engineer", platform:"On-Premise", tags:["PHP","CodeIgniter","On-Premise"],
+    desc:"Developed a polyclinic management application for an Indonesian Government Institution. Handled patient records, appointments, and medical data management on on-premise infrastructure.",
+    imgs:[] },
+
+  { year:2014, cat:"fulltime", client:"Government Finance Ministry | Confidential Client", company:"PT Belant Persada", title:"National Asset Management System", role:"Software Engineer", platform:"On-Premise", tags:["C#","DevExpress","Desktop App","On-Premise"],
+    desc:"Developed a desktop application for state asset management across the Ministry of Finance. Handled asset registration, depreciation tracking, and financial reporting at national scale.",
+    imgs:['../images/project/siman.jpg'] },
+
+  { year:2016, cat:"fulltime", client:"Government Sports Authority | Confidential Client", company:"PT Belant Persada", title:"PON XIX & PEPARNAS XV Jawa Barat", role:"Software Engineer", platform:"On-Premise", tags:["C#","DevExpress","Desktop App"],
+    desc:"Developed a desktop application for PON XIX & PEPARNAS XV national sports event management in Jawa Barat. Managed athlete data, event scheduling, and results tabulation across multiple sports disciplines.",
+    imgs:['../images/project/pon_xix.webp'] },
+
+  { year:2017, cat:"fulltime", client:"National Law Enforcement Agency | Confidential Client", company:"PT Belant Persada", title:"Business Intelligence – Police Report", role:"Full-Stack Engineer", platform:"On-Premise", tags:["C#","ASP.NET","Power BI","On-Premise"],
+    desc:"Developed a business intelligence dashboard for the National Law Enforcement Agency. Integrated Power BI for crime data visualization and reporting analytics across regional law enforcement units.",
+    imgs:['../images/project/bi.webp']  },
+
+  { year:2017, cat:"fulltime", client:"Government Finance Ministry | Confidential Client", company:"PT Belant Persada", title:"SIKNL – Other State Assets Management", role:"Full-Stack Engineer", platform:"On-Premise", tags:["Java","Spring MVC","On-Premise"],
+    desc:"Developed a state assets management system for the Ministry of Finance. Handled the full non-land asset lifecycle from procurement through to disposal.",
+    imgs:[] },
+
+  { year:2018, cat:"fulltime", client:"Government Infrastructure Ministry | Confidential Client", company:"PT Belant Persada", title:"SP3A – Budget Planning & Execution Control", role:"Full-Stack Engineer", platform:"On-Premise", tags:["C#","DevExpress","ASP.NET MVC","On-Premise"],
+    desc:"Developed a budget planning and execution control system for the Ministry of Public Works. Managed project budgets, disbursement tracking, and financial reporting across infrastructure projects.",
+    imgs:[] },
+
+  { year:2019, cat:"fulltime", client:"Financial Institution Pension Fund | Confidential Client", company:"PT Belant Persada", title:"Billing Scorecard System", role:"Full-Stack Engineer", platform:"On-Premise", tags:["Java","Spring Boot","On-Premise"],
+    desc:"Developed a billing and scorecard system for a Financial Institution Pension Fund. Managed billing cycles, payment tracking, and performance scorecards for fund operations.",
+    imgs:[] },
+
+  { year:2019, cat:"fulltime", client:"State-Owned Port & Logistics Company | Confidential Client", company:"PT Belant Persada", title:"Single Interface Billing", role:"Full-Stack Engineer", platform:"On-Premise", tags:["C#",".NET Core","Talend ESB","PHP","Phalcon","On-Premise"],
+    desc:"Developed a unified billing interface for a State-Owned Port & Logistics Company. Integrated multiple disparate billing systems via Talend ESB for streamlined, centralized logistics billing.",
+    imgs:[] },
+
+  { year:2020, cat:"fulltime", client:"Internal Product", company:"PT Belant Persada", title:"Smart Water System", role:"Full-Stack Engineer", platform:"GCP", tags:["Python","C#",".NET Core","Google Cloud IoT","GCP"],
+    desc:"Developed an IoT-based smart water management system leveraging Google Cloud IoT Core and event-driven architecture. Monitored water quality and flow data in real time with automated alerting.",
+    imgs:['../images/project/smartwater.webp'] },
+
+  { year:2020, cat:"fulltime", client:"Internal Services", company:"PT Belant Persada", title:"OAuth 2.0 Server", role:"Backend Engineer", platform:"On-Premise", tags:["Golang","Gin","OAuth 2.0","On-Premise"],
+    desc:"Built an internal OAuth 2.0 authorization server in Golang. Provided centralized identity and access management across internal services.",
+    imgs:[] },
+
+  { year:2021, cat:"fulltime", client:"Internal Services", company:"PT Belant Persada", title:"Internal Framework – Backend API & Frontend", role:"Full-Stack Engineer", platform:"On-Premise", tags:["C#",".NET Core","On-Premise"],
+    desc:"Developed an internal framework standardizing backend API and frontend conventions. Established reusable components and patterns adopted across all active projects.",
+    imgs:[] },
+
+  { year:2021, cat:"fulltime", client:"Internal Product", company:"PT Belant Persada", title:"Smart Parking System", role:"Backend Engineer", platform:"On-Premise", tags:["Golang","Gin","On-Premise"],
+    desc:"Built a backend API for a smart parking management system. Handled real-time slot detection, booking workflows, and payment processing.",
+    imgs:[] },
+
+  { year:2022, cat:"fulltime", client:"MyDigilearn", company:"Telkom Corporate University . PT Metranet", title:"Learning Platform Modernization", role:"DevOps Engineer", platform:"AWS", tags:["AWS","EKS","Aurora","Jenkins","Prometheus","Grafana","Elasticsearch","Ansible"],
+    desc: "Architected and implemented a comprehensive modernization of the learning platform. Migrated legacy PM2 services to EKS. Resolved critical DB bottlenecks with Aurora + connection pooling. Validated for 100k concurrent users under peak traffic with full CI/CD pipelines.",
+    imgs: ['../images/mdl-0.webp','../images/arch/perf_jenkins_k8s.webp'] },
+
+  { year:2022, cat:"fulltime", client:"Fintech Platform | Confidential Client", company:"PT SIMTEK", title:"Fintech Platform – AWS DevOps Setup", role:"DevOps Engineer", platform:"AWS", tags:["AWS","Docker","GitLab CI","VPC","EC2","RDS","Load Balancer","Lambda"],
+    desc:"Architected and implemented DevOps infrastructure on AWS for a Fintech platform. Designed Docker-based architecture with GitLab CI pipeline and managed AWS services including EC2, RDS, and Lambda.",
+    imgs:[] },
+
+  { year:2023, cat:"fulltime", client:"Membership Platform | Confidential Client", company:"PT SIMTEK", title:"Membership Binary – ID Cloudhost", role:"DevOps Engineer", platform:"IDCloudHost", tags:["IDCloudHost","Docker","GitLab CI","Ansible","VM Instance"],
+    desc:"Architected and implemented DevOps infrastructure on IDCloudHost for a membership platform. Designed Docker-based architecture with GitLab CI pipeline and Ansible automation for consistent provisioning.",
+    imgs:[] },
+
+  { year:2023, cat:"fulltime", client:"Crypto Exchange Platform | Confidential Client", company:"PT SIMTEK", title:"High-Security Crypto Exchange Infra", role:"DevOps Engineer", platform:"AWS", tags:["AWS","EKS","WAF","Terraform","Kustomize","Vault"],
+    desc:"Architected a production EKS cluster for a crypto trading platform with security layered at every level — WAF and Shield at the edge, HashiCorp Vault for secrets management, Kong API Gateway, and zero public exposure across all services.",
+    imgs: ['../images/arch/blockchain.webp'] },
+
   // ── FREELANCE ──
-  { year:2023, cat:"freelance", client:"Agriculture Enterprise", company:"Freelance", title:"TPA Absence – Face Recognition System", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#",".NET Core","Face Recognition","NFC","On-Premise"], desc:"Full-stack development of an absence system with face recognition and NFC for Teladan Prima Agri. Integrated biometric identification for accurate employee attendance tracking.", imgs:[] },
-  { year:2023, cat:"freelance", client:"Cloami Apparel Manufacturing", company:"PT Sahaware Indonesia", title:"Cloami – Integrated Manufacturing Platform", role:"DevOps Engineer", platform:"GCP", tags:["GCP","GKE","Kubernetes","GitLab CI","Terraform","Ansible","Kustomize"], desc:"Architected scalable production environment on Google Cloud for apparel manufacturing. Implemented full IaC for consistent provisioning and automated deployment workflows.", imgs:[] },
-  { year:2023, cat:"freelance", client:"State-Owned Port & Logistics Company", company:"PT Belant Persada", title:"E-Meterai Integration System", role:"Full-Stack Developer", platform:"On-Premise", tags:["C#",".NET Core","Docker","Talend ESB","On-Premise"], desc:"Developed and integrated e-Meterai electronic stamp system into corporate logistics workflows. Managed secure document signing and data exchange via Enterprise Service Bus.", imgs:[] },
-  { year:2024, cat:"freelance", client:"PT Kreatif Teknologi Multiguna", company:"Freelance", title:"Realcount Apps – Election Tabulation", role:"Full-Stack Developer", platform:"IDCloudHost", tags:["Golang","Kubernetes","GitHub Actions","Ansible"], desc:"High-concurrency backend in Golang for 2024 election result tabulation. Handled simultaneous submissions from thousands of polling stations with real-time aggregation at national scale.", imgs:[] },
-  { year:2024, cat:"freelance", client:"PON XXI SUMUT", company:"PT Belant Persada", title:"National Sports Event Infrastructure", role:"DevOps Engineer", platform:"On-Premise", tags:["Bare Metal K8s","On-Premise","GitLab CI","Ansible","Kubernetes"], desc:"Architected high-traffic on-premise Kubernetes infrastructure for national-scale sports data management. Automated deployment and ensured high availability under event-day peak load.", imgs:[] },
-  { year:2024, cat:"freelance", client:"Private Healthcare Institution", company:"PT Medxa", title:"Secure Hospital Infrastructure", role:"DevOps Engineer", platform:"AWS", tags:["AWS","Site-to-Site VPN","Fortigate","On-Premise"], desc:"Engineered secure networking bridge between AWS Cloud and On-Premise data centers for Private Healthcare Institution. Implemented Site-to-Site VPN with Fortigate for encrypted data transmission.", imgs:[] },
-  { year:2024, cat:"freelance", client:"Umrohin", company:"Freelance", title:"Scalable GCP Cloud Infrastructure", role:"DevOps Engineer", platform:"GCP", tags:["GCP","GKE","Kubernetes","GitHub Actions","Terraform","Ansible"], desc:"Designed and implemented scalable cloud infrastructure on GCP for Umrah travel platform. Managed VPC configurations and automated provisioning of managed Kubernetes services.", imgs:[] },
-  { year:2024, cat:"freelance", client:"Plantation Enterprise", company:"PT Kreatif Teknologi Multiguna", title:"SPARTA Super Apps", role:"Technical Lead", platform:"Azure", tags:["Azure","Azure Functions","Azure Services","Azure DevOps","C#","Flutter"], desc:"Led technical architecture and development of enterprise super-app for the plantation industry. Managed complex data integration and serverless functions using the Azure ecosystem.", imgs:[] },
-  { year:2024, cat:"freelance", client:"Plantation Enterprise", company:"PT Kreatif Teknologi Multiguna", title:"General Inspection Patroli", role:"Technical Lead", platform:"Azure", tags:["Azure","Azure Functions","Azure Data Factory","Azure DevOps","C#","Flutter"], desc:"Offline-First mobile inspection system for remote plantation field operations. Automated background sync to Azure once connectivity is restored.", imgs:[] },
-  { year:2024, cat:"freelance", client:"GICE – Civil Engineering", company:"Plantation Enterprise", title:"General Inspection – Civil Engineering", role:"Full-Stack Developer", platform:"Azure", tags:["C#",".NET Core","Azure"], desc:"Full-stack development for civil engineering general inspection system at Bumitama Agri. Managed inspection workflows and reporting for plantation infrastructure.", imgs:[] },
-  { year:2025, cat:"freelance", client:"Major Public Hospital", company:"PT Medxa", title:"Hospital-Critical Hybrid Cloud Infrastructure", role:"Platform & Infrastructure Engineer", platform:"OCI", tags:["OCI","Bare Metal","Docker Swarm","Ansible","GitLab CI","Site-to-Site VPN","ZeroTier","MinIO","Disaster Recovery"], desc:"Comprehensive hybrid cloud architecture for SIMRS hospital management system. Dual Site-to-Site VPN with ZeroTier SD-WAN failover. Zero downtime disaster recovery for critical healthcare data.", imgs:[] },
-  { year:2025, cat:"freelance", client:"Biometric Security", company:"PT Medxa", title:"Hospital Face Recognition System", role:"Backend Engineer", platform:"OCI", tags:["Python","Milvus","MinIO","OCI","Docker"], desc:"Biometric identification for hospital security using Milvus vector database for face similarity search integrated with Python recognition models on OCI.", imgs:[] },
-  { year:2025, cat:"freelance", client:"Large Consumer Finance Company", company:"PT SIMTEK", title:"Large Consumer Finance Company – DevOps Infrastructure", role:"DevOps Engineer", platform:"AWS", tags:["AWS","EKS","GitLab CI","Jenkins","SonarQube"], desc:"DevOps infrastructure management for Large Consumer Finance Company. Implemented high availability and security compliance across production environments.", imgs:[] },
-  { year:2025, cat:"freelance", client:"Sovereign Wealth Fund", company:"PT SIMTEK", title:"INA – DevOps Infrastructure", role:"DevOps Engineer", platform:"AWS", tags:["AWS","EKS","GitLab CI","Jenkins"], desc:"DevOps infrastructure for Sovereign Wealth Fund. Managed secure and compliant cloud infrastructure for government investment management platform.", imgs:[] },
-  { year:2025, cat:"freelance", client:"SIMRS Infrastructure", company:"Major Public Hospital", title:"SIMRS – Hybrid Oracle Cloud", role:"DevOps Engineer", platform:"OCI", tags:["OCI","Hybrid Oracle Cloud","On-Premise","Docker","Ansible"], desc:"Architected and implemented comprehensive end-to-end hybrid cloud architecture (On-premise Bare Metal + OCI) for SIMRS Hospital Management System with site-to-site VPN for data plane connectivity and ZeroTier for secure management plane access (ZTNA), enabling both reliable data sync and zero-trust administrative access.", imgs:[] },
+  { year:2018, cat:"freelance", client:"PT Surveyor Indonesia", company:"Bubat Dev", title:"LCGC", role:"Full-Stack Engineer", platform:"On-Premise", tags:["PHP","Yii","On-Premise"],
+    desc:"Developed a web application for PT Surveyor Indonesia. Built data management and reporting workflows on on-premise infrastructure.",
+    imgs:[] },
+
+  { year:2019, cat:"freelance", client:"National Law Enforcement Agency | Confidential Client", company:"PT Kemala Inti Solusi", title:"SKCK Integration Module", role:"Software Engineer", platform:"On-Premise", tags:["C#","Winform","Socket","Camera","e-KTP","Digital Signature","Fingerprint","On-Premise"],
+    desc:"Developed a desktop integration module for SKCK processing. Integrated biometric devices including fingerprint scanner, camera, and e-KTP reader with digital signature capabilities.",
+    imgs:[
+      '../images/project/skck_1.png','../images/project/skck_2.png','../images/project/skck_3.png','../images/project/skck_4.png',
+      '../images/project/skck_5.png','../images/project/skck_6.png','../images/project/skck_7.png','../images/project/skck_8.png'
+    ]
+  },
+
+  { year:2022, cat:"freelance", client:"Kalbe Farma", company:"Bubat Dev", title:"DCOMS", role:"Full-Stack Engineer", platform:"On-Premise", tags:["C#",".NET Core","On-Premise"],
+    desc:"Developed DCOMS application for Kalbe Farma. Built data management and operational workflows on on-premise infrastructure.",
+    imgs:[] },
+
+  { year:2022, cat:"freelance", client:"Pemkot Mojokerto", company:"PT Sahaware Indonesia", title:"PAK Mojokerto – Population Administration Services", role:"DevOps Engineer", platform:"On-Premise", tags:["Docker Swarm","Jenkins","Ansible","On-Premise"],
+    desc:"Architected and implemented on-premise DevOps infrastructure for Pemkot Mojokerto's population administration services. Deployed Docker Swarm orchestration with Jenkins CI pipeline and Ansible automation.",
+    imgs:['../images/project/pakmo.webp'] },
+
+  { year:2022, cat:"freelance", client:"Mobooking", company:"PT Kreatif Teknologi Multiguna", title:"Mobooking – Startup Cloud Infrastructure", role:"DevOps Engineer", platform:"GCP", tags:["GCP","GKE","CloudSQL","GitLab CI","Prometheus","Grafana","Terraform","Ansible"],
+    desc:"Architected and implemented scalable cloud infrastructure on GCP for a startup booking platform. Designed Kubernetes cluster on GKE with CloudSQL, full observability stack, and automated CI/CD via GitLab CI.",
+    imgs:['../images/arch/k8s_gke.webp'] },
+
+  { year:2022, cat:"freelance", client:"Plantation Enterprise | Confidential Client", company:"PT Kreatif Teknologi Multiguna", title:"General Inspection – Civil Engineering", role:"Full-Stack Engineer", platform:"Azure", tags:["C#",".NET Core","Azure"],
+    desc:"Developed a civil engineering inspection system on the SPARTA framework. Managed inspection workflows and reporting for plantation infrastructure within the unified SPARTA ecosystem.",
+    imgs:['../images/project/piers_1.webp','../images/project/piers_2.webp'] },
+
+  { year:2023, cat:"freelance", client:"Agriculture Enterprise | Confidential Client", company:"Freelance", title:"TPA Absence – Face Recognition System", role:"Full-Stack Engineer", platform:"On-Premise", tags:["C#",".NET Core","Face Recognition","NFC","On-Premise"],
+    desc:"Developed a full-stack employee absence system with face recognition and NFC integration. Delivered accurate biometric identification for employee attendance tracking on on-premise infrastructure.",
+    imgs:[] },
+
+  { year:2023, cat:"freelance", client:"Cloami Apparel Manufacturing", company:"PT Sahaware Indonesia", title:"Cloami – Integrated Manufacturing Platform", role:"DevOps Engineer", platform:"GCP", tags:["GCP","GKE","Kubernetes","GitLab CI","Terraform","Ansible","Kustomize"],
+    desc:"Architected a fully IaC-driven production environment on GKE for apparel manufacturing operations. Every deployment reproducible, version-controlled, and automated end-to-end — no manual provisioning, no environment drift.",
+    imgs:[] },
+
+  { year:2023, cat:"freelance", client:"State-Owned Port & Logistics Company | Confidential Client", company:"PT Belant Persada", title:"E-Meterai Integration System", role:"Full-Stack Engineer", platform:"On-Premise", tags:["C#",".NET Core","Docker","Talend ESB","On-Premise"],
+    desc:"Developed and integrated e-Meterai electronic stamp into corporate logistics workflows. Managed secure document signing processes and orchestrated data exchange via Talend Enterprise Service Bus.",
+    imgs:[] },
+
+  { year:2024, cat:"freelance", client:"Indonesia 2024 Election", company:"PT Kreatif Teknologi Multiguna", title:"Realcount Apps – Election Tabulation", role:"Technical Lead", platform:"IDCloudHost", tags:["Golang","Kubernetes","GitHub Actions","Ansible"],
+    desc: "Architected and led technical architecture and directed development a robust data entry and tabulation platform for 2024 election results. Engineered a high-concurrency Golang backend handling simultaneous submissions from thousands of polling stations.",
+    imgs: ['../images/rc-1.webp','../images/rc-2.webp','../images/rc-3.webp','../images/rc-4.webp'] },
+
+  { year:2024, cat:"freelance", client:"PON XXI SUMUT", company:"PT Belant Persada", title:"National Sports Event Infrastructure", role:"Senior DevOps Engineer", platform:"On-Premise", tags:["Bare Metal K8s","On-Premise","GitLab CI","Ansible","Kubernetes"],
+    desc:"Architected high-availability on-premise Kubernetes infrastructure for national-scale sports data management. Designed for peak-load absorption on event day — automated deployments, redundancy built in from day one. When the event went live, the infrastructure didn't flinch.",
+    imgs: ['../images/ponaceh-1.webp'] },
+
+  { year:2024, cat:"freelance", client:"Private Healthcare Institution | Confidential Client", company:"PT Medxa", title:"Secure Hospital Infrastructure", role:"Senior DevOps Engineer", platform:"AWS", tags:["AWS","Site-to-Site VPN","Fortigate","On-Premise"],
+    desc:"Architected a secure networking bridge between AWS and on-premise data centers for a private healthcare institution. Implemented Site-to-Site VPN with Fortigate — encrypted, zero-public-exposure data transmission across environments.",
+    imgs: ['../images/arch/s2s_aws_onpremise.webp'] },
+
+  { year:2024, cat:"freelance", client:"Umrohin", company:"Freelance", title:"Scalable GCP Cloud Infrastructure", role:"DevOps Engineer", platform:"GCP", tags:["GCP","GKE","Kubernetes","GitHub Actions","Terraform","Ansible"],
+    desc:"Architected and implemented scalable cloud infrastructure on GCP for an Umrah travel platform. Designed VPC configurations and automated provisioning of managed Kubernetes services via Terraform and Ansible.",
+    imgs:['../images/project/umrohin.webp'] },
+
+  { year:2024, cat:"freelance", client:"Plantation Enterprise | Confidential Client", company:"PT Kreatif Teknologi Multiguna", title:"SPARTA Super Apps", role:"Technical Lead", platform:"Azure", tags:["Azure","Azure Functions","Azure DevOps","C#","Flutter"],
+    desc:"Architected SPARTA from the ground up as an enterprise application framework on Azure — designing the full backend and frontend stack. Built as a reusable platform foundation that became the standard migration target for modernizing legacy applications across the organization.",
+    imgs: ['../images/arch/azure_stack.webp'] },
+
+  { year:2024, cat:"freelance", client:"Plantation Enterprise | Confidential Client", company:"PT Kreatif Teknologi Multiguna", title:"General Inspection Patroli", role:"Technical Lead", platform:"Azure", tags:["Azure","Azure Functions","Azure Data Factory","Azure DevOps","Flutter"],
+    desc:"Architected and migrated a legacy PHP inspection system onto the SPARTA framework. Redesigned as an offline-first mobile application — all data stored locally during field operations, submitted by the user once connectivity is available. First production workload successfully migrated onto SPARTA.",
+    imgs: ['../images/arch/azure_data_factory.webp'] },
+
+  { year:2025, cat:"freelance", client:"Major Public Hospital | Confidential Client", company:"PT Medxa", title:"Hospital-Critical Hybrid Cloud Infrastructure", role:"Platform & Infrastructure Engineer", platform:"OCI", tags:["OCI","Bare Metal","Docker Swarm","Ansible","GitLab CI","Site-to-Site VPN","ZeroTier","MinIO","Disaster Recovery"],
+    desc:"Architected a comprehensive hybrid cloud platform for a major hospital's SIMRS — connecting on-premise bare metal and OCI through Site-to-Site VPN for data plane integrity, with ZeroTier for zero-trust management plane access. Designed disaster recovery strategy ensuring zero downtime for critical healthcare operations.",
+    imgs: ['../images/arch/hybrid.webp','../images/rsmh-2.webp','../images/rsmh-3.webp','../images/rsmh-4.webp'] },
+
+  { year:2025, cat:"freelance", client:"Biometric Security | Confidential Client", company:"PT Medxa", title:"Hospital Face Recognition System", role:"Backend Engineer", platform:"OCI", tags:["Python","Milvus","MinIO","OCI","Docker"],
+    desc:"Built a biometric face recognition system for hospital security. Milvus as the vector database for fast face similarity search, integrated with Python recognition models on OCI. Eliminated manual identity verification bottlenecks at hospital entry points.",
+    imgs: ['../images/fr-1.webp'] },
+
+  { year:2025, cat:"freelance", client:"F&B, Financial & Government Sectors | Confidential Clients", company:"PT SIMTEK -> PT Merkle Innovation", title:"Enterprise Multi-Client DevOps", role:"Senior DevOps Engineer", platform:"AWS", tags:["AWS","EKS","ECS","GitLab CI","Jenkins","SonarQube"],
+    desc: "Managed and optimized cloud infrastructure for multiple enterprise clients across F&B, financial services, and government sectors. Implemented CI/CD pipelines, container orchestration, and infrastructure automation while ensuring high availability and security compliance across production environments.",
+    imgs: ['../images/arch/backup_aws.webp'] },
+
   // ── PART TIME ──
-  { year:2024, cat:"parttime", client:"PT Inspirasi Bisnis Nusantara (HAUS!)", company:"Part-time", title:"Hybrid Cloud Cost Transformation", role:"DevOps Engineer", platform:"AWS", tags:["AWS","GCP","Bare Metal","Kubernetes","Terraform","Cloudflare Zero Trust","GitHub Actions","Prometheus","Grafana"], desc:"Architected and implemented hybrid infrastructure for a fast-growing F&B chain was overspending on cloud by 3x. Led phased optimization — first cutting AWS costs by 32%, then engineering a full migration to bare metal Kubernetes. Implemented Cloudflare Zero Trust to eliminate public management exposure. Result: 85% OPEX savings.", imgs:[] },
+  { year:2023, cat:"parttime", client:"PT Inspirasi Bisnis Nusantara (Haus! Indonesia)", company:"PT Inspirasi Bisnis Nusantara", title:"Hybrid Cloud Cost Transformation", role:"Senior DevOps Engineer", platform:"AWS", tags:["AWS","Bare Metal","Kubernetes","Terraform","Cloudflare Zero Trust","GitHub Actions","Prometheus","Grafana"],
+    desc: "Architected and implemented hybrid infrastructure for a fast-growing F&B chain was overspending on cloud by 3x. Led phased optimization — first cutting AWS costs by 32%, then engineering a full migration to bare metal Kubernetes. Implemented Cloudflare Zero Trust to eliminate public management exposure. Result: 85% OPEX savings.",
+    imgs:['../images/haus-1.webp','../images/arch/k8s_baremetal.webp'] },
 ];
 
 // ── FILTER STATE ──
@@ -351,7 +462,7 @@ projects.forEach(p => {
     <div class="card-body">
       <div class="card-top">
         <span class="card-year">${p.year}</span>
-        <span class="card-role-badge">${p.role.split(' ').slice(-1)[0]}</span>
+        <span class="card-role-badge">${p.role}</span>
       </div>
       <div class="card-client">${p.client}</div>
       <div class="card-company">${p.company}</div>
