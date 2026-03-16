@@ -245,7 +245,7 @@ body::after {
   .nav-links a {
     color: #d8eaf2;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     position: relative;
@@ -312,7 +312,7 @@ body::after {
   }
 
   .nav-cta:hover {
-    color: var(--bg) !important;
+    color: var(--bg);
     border-color: var(--accent);
     box-shadow:
       0 0 20px rgba(0,229,255,0.5),
@@ -895,7 +895,7 @@ section { padding: 100px 60px; position: relative; z-index: 2; }
 .expertise-card:nth-child(8):hover .ec-title { color: var(--accent); }
 
 .ec-desc {
-  font-size: 14px; font-weight: 500; color: var(--text-muted); line-height: 1.6;
+  font-size: 14px; font-weight: 300; color: var(--text-muted); line-height: 1.6;
   transition: color 0.3s;
 }
 .expertise-card:hover .ec-desc { color: var(--text); }
@@ -1759,7 +1759,6 @@ section { padding: 100px 60px; position: relative; z-index: 2; }
 }
 
 /* EXPERIENCE  */
-#experience { background: var(--bg); }
 .career-list { display: block; }
 .timeline, .timeline-item, .timeline-dot,
 .tl-period,  .tl-clients,
@@ -2088,7 +2087,7 @@ section { padding: 100px 60px; position: relative; z-index: 2; }
 
 
 /* CONTACT */
-#contact { background: var(--bg); text-align: center; padding: 120px 60px; }
+#contact {  text-align: center; padding: 120px 60px; }
 
 .contact-inner { max-width: 600px; margin: 0 auto; }
 

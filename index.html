@@ -17,6 +17,7 @@
   <!-- <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="./styles/casestudies.css" />
 </head>
 <body>
 
@@ -46,6 +47,7 @@
     <li><a href="#hero" style="color: var(--accent);">Profile</a></li>
     <li><a href="#expertise">Expertise</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#studies">Case Studies</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -56,7 +58,7 @@
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" onclick="(function(){var d=document.documentElement,t=d.getAttribute('data-theme')==='light'?'dark':'light';d.setAttribute('data-theme',t);document.getElementById('toggleIcon').textContent=t==='light'?'🌙':'☀️';try{localStorage.setItem('theme',t);}catch(e){}})()">
     <span id="toggleIcon">☀️</span>
   </button>
-  <a href="mailto:ione.houten@gmail.com" class="nav-cta">Hire Me</a>
+  <a href="mailto:ione.houten@gmail.com" class="nav-cta"><span>Hire Me</span></a>
 </nav>
 
 <!-- MOBILE MENU -->
@@ -64,6 +66,7 @@
   <a href="#hero" onclick="closeMob()">Profile</a>
   <a href="#expertise" onclick="closeMob()">Expertise</a>
   <a href="#projects" onclick="closeMob()">Projects</a>
+  <a href="#studies" onclick="closeMob()">Case Studies</a>
   <a href="#stack" onclick="closeMob()">Stack</a>
   <a href="#experience" onclick="closeMob()">Experience</a>
   <a href="#contact" onclick="closeMob()">Contact</a>
@@ -223,7 +226,7 @@
 <div class="divider"></div>
 
 <!-- EXPERTISE -->
-<section id="expertise">
+<section id="expertise" class="section-center">
   <div class="section-label">What I Do</div>
   <h2 class="section-title">Core Expertise</h2>
   <div class="expertise-grid reveal">
@@ -296,6 +299,592 @@
 </section>
 
 <div class="divider"></div>
+
+<!-- CASE STUDIES -->
+<section id="studies" class="section-center">
+  <div class="section-label">Engineering Research</div>
+  <h2 class="section-title">Case Studies</h2>
+  <p class="bm-intro">
+    Real-world benchmarks from production migration projects. Empirical data collected across
+    multiple infrastructure configurations — bare metal Kubernetes, managed cloud, and distributed storage.
+  </p>
+
+  <!-- CASE STUDY CARDS -->
+  <div class="cs-grid">
+
+    <!-- Card 1: PostgreSQL -->
+    <div class="cs-card" onclick="openModalCs('modal-pg')">
+      <div class="cs-card-top">
+        <div class="cs-num">01</div>
+        <div class="cs-icon">🐘</div>
+      </div>
+      <div class="cs-tag-row">
+        <span class="cs-tag">PostgreSQL</span>
+        <span class="cs-tag">pgbench</span>
+        <span class="cs-tag">CloudNativePG</span>
+      </div>
+      <h3 class="cs-title">Database Performance:<br>Bare Metal vs Managed Cloud</h3>
+      <p class="cs-desc">
+        Head-to-head benchmark between self-managed CloudNativePG on bare metal Kubernetes
+        and AWS RDS / Aurora — same workload, same VM class, progressive tuning iterations.
+      </p>
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <div class="cs-metric-val cs-red">56%</div>
+          <div class="cs-metric-label">Latency reduction<br>via tuning alone</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">8,325</div>
+          <div class="cs-metric-label">Peak bare metal<br>read TPS</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val cs-warn">3×</div>
+          <div class="cs-metric-label">Throughput gain<br>from config tuning</div>
+        </div>
+      </div>
+      <div class="cs-devto-badge">📝 Published on <strong>dev.to</strong></div>
+      <div class="cs-cta">View Full Report <span>→</span></div>
+    </div>
+
+    <!-- Card 2: Redis -->
+    <div class="cs-card" onclick="openModalCs('modal-redis')">
+      <div class="cs-card-top">
+        <div class="cs-num">02</div>
+        <div class="cs-icon">⚡</div>
+      </div>
+      <div class="cs-tag-row">
+        <span class="cs-tag">Redis</span>
+        <span class="cs-tag">redis-benchmark</span>
+        <span class="cs-tag">Persistence</span>
+      </div>
+      <h3 class="cs-title">Redis Persistence:<br>Architecture Impact Study</h3>
+      <p class="cs-desc">
+        Quantifying the cost of AOF + RDB persistence across local NVMe and distributed
+        Longhorn storage. Defines the architectural boundary for durability vs throughput.
+      </p>
+      <div class="cs-metrics">
+        <div class="cs-metric">
+          <div class="cs-metric-val cs-red">15×</div>
+          <div class="cs-metric-label">Throughput loss<br>Longhorn + AOF</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val">8,027</div>
+          <div class="cs-metric-label">Peak SET RPS<br>no persistence</div>
+        </div>
+        <div class="cs-metric">
+          <div class="cs-metric-val cs-warn">903ms</div>
+          <div class="cs-metric-label">Max SET latency<br>worst config</div>
+        </div>
+      </div>
+      <div class="cs-devto-badge">📝 Published on <strong>dev.to</strong></div>
+      <div class="cs-cta">View Full Report <span>→</span></div>
+    </div>
+
+  </div><!-- /cs-grid -->
+
+  <div class="bm-footnote">
+    
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════
+     MODAL: PostgreSQL Case Study
+══════════════════════════════════════════ -->
+<div class="cs-modal" id="modal-pg" onclick="closeModalBg(event, this)">
+  <div class="cs-modal-box">
+    <div class="cs-modal-header">
+      <div>
+        <div class="cs-modal-eyebrow">Case Study 01 · PostgreSQL</div>
+        <h2 class="cs-modal-title">Database Performance:<br>Bare Metal vs Managed Cloud</h2>
+      </div>
+      <button class="cs-modal-close" onclick="closeModal('modal-pg')">✕</button>
+    </div>
+    <div class="cs-modal-body">
+
+      <div class="cs-modal-ctx">
+        <span class="cs-ctx-pill">Scale Factor 100</span>
+        <span class="cs-ctx-pill">10M rows · 1.5 GB table</span>
+        <span class="cs-ctx-pill">pgbench</span>
+        <span class="cs-ctx-pill">2 vCPU / 8 GB RAM</span>
+        <span class="cs-ctx-pill">1–100 clients × 1–8 threads</span>
+        <span class="cs-ctx-pill">Single instance · no HA</span>
+        <span class="cs-ctx-pill">ap-southeast-3</span>
+        <span class="cs-ctx-pill">⚠ RDS t3 = burst window</span>
+      </div>
+
+      <p class="cs-modal-text">
+        An e-commerce platform migrating from managed cloud to on-premises Kubernetes raised a
+        critical question: <em>can self-managed PostgreSQL match managed service performance after tuning?</em>
+        This benchmark compares a <strong>single CNPG instance</strong> on bare metal against
+        <strong>single-instance RDS Standard and Aurora</strong> (t3.large) — same 2 vCPU / 8 GB RAM
+        allocation, same region (ap-southeast-3), no read replicas or Multi-AZ.
+        <strong>⚠ Note:</strong> RDS Standard uses a <strong>t3.large (burstable)</strong> instance.
+        Our ~50 minute total benchmark ran within the burst window — results reflect peak burst performance.
+        In production workloads running continuously 24/7, performance will drop once CPU credits exhaust
+        (t3.large baseline CPU = 30%). For sustained production comparison, consider
+        <code>m6i.large</code> or <code>m7g.large</code> (non-burstable).
+      </p>
+
+      <!-- Hero metrics -->
+      <div class="bm-hero-grid">
+        <div class="bm-hero-card accent1">
+          <div class="bm-hero-num">13,955</div>
+          <div class="bm-hero-label">Peak Read TPS</div>
+          <div class="bm-hero-sub">RDS Standard · 10c/4t · single instance</div>
+        </div>
+        <div class="bm-hero-card accent2">
+          <div class="bm-hero-num">1,780</div>
+          <div class="bm-hero-label">Bare Metal Write TPS</div>
+          <div class="bm-hero-sub">CNPG Final · beats Aurora IO-Opt</div>
+        </div>
+        <div class="bm-hero-card accent3">
+          <div class="bm-hero-num">0.391 ms</div>
+          <div class="bm-hero-label">Best Write Latency</div>
+          <div class="bm-hero-sub">Bare metal · CPU/NUMA + HugePages</div>
+        </div>
+      </div>
+
+      <!-- Read TPS chart -->
+      <div class="bm-chart-block">
+        <div class="bm-chart-title">Average Read-Only TPS <span class="bm-chart-note">avg across all 13 client/thread combos · higher = better</span></div>
+        <div class="bm-bars">
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">RDS Standard</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-rds" style="--pct:100%"><span>10,724</span></div></div>
+            <div class="bm-bar-tag cloud">☁ Managed</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Aurora IO-Opt</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-aurora" style="--pct:78.1%"><span>8,370</span></div></div>
+            <div class="bm-bar-tag cloud">☁ Managed</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Aurora Standard</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-aurora" style="--pct:75.0%"><span>8,039</span></div></div>
+            <div class="bm-bar-tag cloud">☁ Managed</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label bm-highlight">CNPG Tuning 2 (NUMA+HP)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-bm" style="--pct:67.4%"><span>7,232</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Bare Metal</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">CNPG Tuning 1 (CPU/NUMA)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-bm" style="--pct:64.3%"><span>6,896</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Bare Metal</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">CNPG Longhorn 2R+shared</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-lng" style="--pct:65.8%"><span>7,052</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Bare Metal</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">CNPG Longhorn 1R</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-lng" style="--pct:59.5%"><span>6,376</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Bare Metal</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">CNPG Local SSD</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-bm" style="--pct:57.0%"><span>6,111</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Bare Metal</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">CNPG Longhorn 2R</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-lng" style="--pct:59.3%"><span>6,356</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Bare Metal</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Write TPS chart -->
+      <div class="bm-chart-block">
+        <div class="bm-chart-title">Average Read-Write TPS <span class="bm-chart-note">avg across all 13 client/thread combos · higher = better</span></div>
+        <div class="bm-bars">
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">RDS Standard</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-rds" style="--pct:100%"><span>2,250</span></div></div>
+            <div class="bm-bar-tag cloud">☁ Managed</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label bm-highlight">CNPG Tuning 2 (NUMA+HP)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-bm" style="--pct:75.8%"><span>1,706</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Bare Metal</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label bm-highlight">CNPG Tuning 1 (CPU/NUMA)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-bm" style="--pct:73.7%"><span>1,659</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Bare Metal</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Aurora IO-Opt</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-aurora" style="--pct:54.8%"><span>1,234</span></div></div>
+            <div class="bm-bar-tag cloud">☁ Managed</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Aurora Standard</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-aurora" style="--pct:51.6%"><span>1,162</span></div></div>
+            <div class="bm-bar-tag cloud">☁ Managed</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">CNPG Local SSD</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-bm" style="--pct:60.2%"><span>1,355</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Bare Metal</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">CNPG Longhorn 1R</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-lng" style="--pct:51.2%"><span>1,152</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Bare Metal</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">CNPG Longhorn 2R</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-lng" style="--pct:41.5%"><span>935</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Bare Metal</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">CNPG Longhorn 2R+shared</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-lng" style="--pct:39.7%"><span>892</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Bare Metal</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tuning journey -->
+      <div class="bm-tuning">
+        <div class="bm-tuning-title">Full Tuning Journey — Storage → CPU/NUMA → HugePages</div>
+        <div class="bm-tuning-steps">
+          <div class="bm-tstep">
+            <div class="bm-tstep-num">①</div>
+            <div class="bm-tstep-body">
+              <div class="bm-tstep-label">Longhorn 2R (baseline)</div>
+              <div class="bm-tstep-val">712 RW TPS · 14.04 ms</div>
+              <div class="bm-tstep-cfg">Distributed storage · 2 replicas</div>
+            </div>
+          </div>
+          <div class="bm-tstep-arrow">→</div>
+          <div class="bm-tstep">
+            <div class="bm-tstep-num">②</div>
+            <div class="bm-tstep-body">
+              <div class="bm-tstep-label">Local SSD</div>
+              <div class="bm-tstep-val bm-green">1,425 RW TPS · 7.02 ms <span class="bm-delta">▲100%</span></div>
+              <div class="bm-tstep-cfg">Direct-attached SSD · no network hop</div>
+            </div>
+          </div>
+          <div class="bm-tstep-arrow">→</div>
+          <div class="bm-tstep">
+            <div class="bm-tstep-num">③</div>
+            <div class="bm-tstep-body">
+              <div class="bm-tstep-label">+ CPU/NUMA Pinning</div>
+              <div class="bm-tstep-val bm-green">1,659 RW TPS · 1.81 ms* <span class="bm-delta">▲22%</span></div>
+              <div class="bm-tstep-cfg">KVM NUMA strict · vCPU pinned · perf governor</div>
+            </div>
+          </div>
+          <div class="bm-tstep-arrow">→</div>
+          <div class="bm-tstep">
+            <div class="bm-tstep-num">④</div>
+            <div class="bm-tstep-body">
+              <div class="bm-tstep-label">+ HugePages</div>
+              <div class="bm-tstep-val bm-green">1,706 RW TPS · 1.78 ms* <span class="bm-delta">▲3%</span></div>
+              <div class="bm-tstep-cfg">vm.nr_hugepages=8192 · K8s Guaranteed QoS · huge_pages=on</div>
+            </div>
+          </div>
+        </div>
+        <p class="bm-tuning-insight">
+          <span class="bm-insight-icon">💡</span>
+          <strong>3-layer tuning stack:</strong> KVM hypervisor (NUMA strict, vCPU pin, locked memory) →
+          VM OS (HugePages pre-alloc, perf governor) → Kubernetes (Guaranteed QoS, hugepages-2Mi resource).
+          Each Longhorn replica adds <strong>~3.5ms write latency</strong>. NUMA pinning eliminates cross-NUMA penalty —
+          write latency at 1 client drops from <strong>7.02ms → 1.81ms (-74%)</strong>.
+          * Latency at 1 client.
+        </p>
+      </div>
+
+
+      <!-- Summary Table -->
+      <div class="bm-summary-table">
+        <div class="bm-chart-title">Average TPS Summary <span class="bm-chart-note">avg across all 13 client/thread combos · disaggregated by workload type</span></div>
+        <div class="bm-stbl">
+          <div class="bm-stbl-header">
+            <div>Environment</div>
+            <div>Avg RO TPS</div>
+            <div>Avg RW TPS</div>
+            <div>Overall Avg</div>
+          </div>
+          <div class="bm-stbl-row bm-stbl-cloud">
+            <div class="bm-stbl-env"><span class="bm-stbl-dot dot-rds"></span>AWS RDS (t3.large)</div>
+            <div class="bm-stbl-tps"><span class="bm-stbl-num">10,724</span></div>
+            <div class="bm-stbl-tps"><span class="bm-stbl-num">2,250</span></div>
+            <div class="bm-stbl-badge badge-peak">4,826 — Burstable ⚠</div>
+          </div>
+          <div class="bm-stbl-row bm-stbl-cloud">
+            <div class="bm-stbl-env"><span class="bm-stbl-dot dot-aurora"></span>AWS Aurora (IO-Prov.)</div>
+            <div class="bm-stbl-tps"><span class="bm-stbl-num">8,370</span></div>
+            <div class="bm-stbl-tps"><span class="bm-stbl-num">1,234</span></div>
+            <div class="bm-stbl-badge badge-high">3,480 — Expensive</div>
+          </div>
+          <div class="bm-stbl-row bm-stbl-bare">
+            <div class="bm-stbl-env"><span class="bm-stbl-dot dot-bm"></span>CNPG Tuning 2 (NUMA+HP) ⚡</div>
+            <div class="bm-stbl-tps"><span class="bm-stbl-num">7,232</span></div>
+            <div class="bm-stbl-tps">
+              <div class="bm-stbl-bar-wrap"><div class="bm-stbl-bar bm-stbl-bar-bm" style="--w:100%"></div></div>
+              <span class="bm-stbl-num">1,706</span>
+            </div>
+            <div class="bm-stbl-badge badge-eff">3,351 — #3 Overall ⚡</div>
+          </div>
+          <div class="bm-stbl-row bm-stbl-cloud">
+            <div class="bm-stbl-env"><span class="bm-stbl-dot dot-aurora" style="opacity:.6"></span>AWS Aurora Standard</div>
+            <div class="bm-stbl-tps"><span class="bm-stbl-num">8,039</span></div>
+            <div class="bm-stbl-tps"><span class="bm-stbl-num">1,162</span></div>
+            <div class="bm-stbl-badge badge-high">3,326 — Standard</div>
+          </div>
+          <div class="bm-stbl-row bm-stbl-bare">
+            <div class="bm-stbl-env"><span class="bm-stbl-dot dot-bm" style="opacity:.8"></span>CNPG Tuning 1 (CPU/NUMA)</div>
+            <div class="bm-stbl-tps"><span class="bm-stbl-num">6,896</span></div>
+            <div class="bm-stbl-tps">
+              <div class="bm-stbl-bar-wrap"><div class="bm-stbl-bar bm-stbl-bar-bm" style="--w:97.2%"></div></div>
+              <span class="bm-stbl-num">1,659</span>
+            </div>
+            <div class="bm-stbl-badge badge-eff">3,214 — Strong</div>
+          </div>
+          <div class="bm-stbl-row bm-stbl-bare">
+            <div class="bm-stbl-env"><span class="bm-stbl-dot dot-lng" style="opacity:.5"></span>CNPG Longhorn 2R+shared</div>
+            <div class="bm-stbl-tps"><span class="bm-stbl-num">7,052</span></div>
+            <div class="bm-stbl-tps">
+              <div class="bm-stbl-bar-wrap"><div class="bm-stbl-bar bm-stbl-bar-lng" style="--w:65.8%"></div></div>
+              <span class="bm-stbl-num">892</span>
+            </div>
+            <div class="bm-stbl-badge badge-warn">2,885 — -34% RW vs SSD</div>
+          </div>
+          <div class="bm-stbl-row bm-stbl-bare">
+            <div class="bm-stbl-env"><span class="bm-stbl-dot dot-lng"></span>CNPG Longhorn 1R</div>
+            <div class="bm-stbl-tps"><span class="bm-stbl-num">6,376</span></div>
+            <div class="bm-stbl-tps">
+              <div class="bm-stbl-bar-wrap"><div class="bm-stbl-bar bm-stbl-bar-lng" style="--w:85.0%"></div></div>
+              <span class="bm-stbl-num">1,152</span>
+            </div>
+            <div class="bm-stbl-badge badge-warn">2,797 — -15% RW vs SSD</div>
+          </div>
+          <div class="bm-stbl-row bm-stbl-bare">
+            <div class="bm-stbl-env"><span class="bm-stbl-dot dot-bm" style="opacity:.6"></span>CNPG Local SSD</div>
+            <div class="bm-stbl-tps"><span class="bm-stbl-num">6,111</span></div>
+            <div class="bm-stbl-tps">
+              <div class="bm-stbl-bar-wrap"><div class="bm-stbl-bar bm-stbl-bar-bm" style="--w:79.4%"></div></div>
+              <span class="bm-stbl-num">1,355</span>
+            </div>
+            <div class="bm-stbl-badge badge-good">2,796 — Baseline</div>
+          </div>
+          <div class="bm-stbl-row bm-stbl-bare">
+            <div class="bm-stbl-env"><span class="bm-stbl-dot dot-lng" style="opacity:.7"></span>CNPG Longhorn 2R</div>
+            <div class="bm-stbl-tps"><span class="bm-stbl-num">6,356</span></div>
+            <div class="bm-stbl-tps">
+              <div class="bm-stbl-bar-wrap"><div class="bm-stbl-bar bm-stbl-bar-lng" style="--w:69.0%"></div></div>
+              <span class="bm-stbl-num">935</span>
+            </div>
+            <div class="bm-stbl-badge badge-throttle">2,671 — -31% RW vs SSD</div>
+          </div>
+        </div>
+        <p class="bm-stbl-note">RW bars show write-only avg — the most relevant metric for OLTP. Read avg is similar across all bare metal configs. Overall avg includes RO+RW+TPC-B and is dominated by read volume. ⚠ RDS Standard (t3.large) is burstable — its 4,826 overall avg reflects burst window performance (~50 min benchmark). In 24/7 production, performance drops once CPU credits exhaust. CNPG Tuning 2's 3,351 is consistent regardless of duration.</p>
+      </div>
+
+      <!-- Legend -->
+      <div class="bm-legend">
+        <div class="bm-legend-title">Environment Key</div>
+        <div class="bm-legend-grid">
+          <div class="bm-leg-item"><span class="bm-leg-dot dot-bm"></span><strong>CNPG Local SSD</strong> — CloudNativePG on bare metal, Samsung SM863a SAS direct-attached</div>
+          <div class="bm-leg-item"><span class="bm-leg-dot dot-lng"></span><strong>CNPG Longhorn 1R/2R</strong> — Same bare metal host, Longhorn distributed storage (1 or 2 replicas)</div>
+          <div class="bm-leg-item"><span class="bm-leg-dot dot-rds"></span><strong>RDS Standard</strong> — AWS RDS PostgreSQL 17.6, t3.large <em>(burstable — benchmark ~50 min within burst window; 24/7 production performance lower once credits exhaust)</em></div>
+          <div class="bm-leg-item"><span class="bm-leg-dot dot-aurora"></span><strong>Aurora IO-Opt / Standard</strong> — AWS Aurora PostgreSQL 17.4, t3.large</div>
+        </div>
+      </div>
+
+      <!-- Article link -->
+      <div class="cs-article-link">
+        <span class="cs-article-icon">📝</span>
+        <div>
+          <div class="cs-article-label">Part 1 · Published on dev.to</div>
+          <a href="https://dev.to/ionehouten/bare-metal-vs-aws-rds-a-deep-dive-into-numa-aware-tuning-and-postgresql-performance-1fil" target="_blank" rel="noopener" class="cs-article-title">Bare Metal vs. AWS RDS: Storage Baseline — Longhorn vs Local SSD vs Managed Cloud →</a>
+        </div>
+      </div>
+      <div class="cs-article-link" style="margin-top:10px">
+        <span class="cs-article-icon">📝</span>
+        <div>
+          <div class="cs-article-label">Part 2 · Published on dev.to</div>
+          <a href="https://dev.to/ionehouten/bare-metal-vs-aws-rds-a-deep-dive-into-numa-aware-tuning-and-postgresql-performance-part-2-2daa" target="_blank" rel="noopener" class="cs-article-title">NUMA Pinning &amp; HugePages: How Bare Metal Beat Aurora on Write Throughput →</a>
+        </div>
+      </div>
+
+    </div><!-- /cs-modal-body -->
+  </div><!-- /cs-modal-box -->
+</div><!-- /modal-pg -->
+
+
+<!-- ══════════════════════════════════════════
+     MODAL: Redis Case Study
+══════════════════════════════════════════ -->
+<div class="cs-modal" id="modal-redis" onclick="closeModalBg(event, this)">
+  <div class="cs-modal-box">
+    <div class="cs-modal-header">
+      <div>
+        <div class="cs-modal-eyebrow">Case Study 02 · Redis</div>
+        <h2 class="cs-modal-title">Redis Persistence:<br>Architecture Impact Study</h2>
+      </div>
+      <button class="cs-modal-close" onclick="closeModal('modal-redis')">✕</button>
+    </div>
+    <div class="cs-modal-body">
+
+      <div class="cs-modal-ctx">
+        <span class="cs-ctx-pill">50K requests</span>
+        <span class="cs-ctx-pill">20 parallel clients</span>
+        <span class="cs-ctx-pill">180 KB payload</span>
+        <span class="cs-ctx-pill">single-thread</span>
+        <span class="cs-ctx-pill">redis-benchmark</span>
+      </div>
+
+      <p class="cs-modal-text">
+        When designing the caching layer for a high-throughput production workload, the team needed
+        to answer a hard question: <em>can Redis AOF persistence coexist with distributed block storage?</em>
+        These benchmarks — covering 9 configurations across local NVMe and Longhorn — give a
+        definitive architectural answer.
+      </p>
+
+      <!-- Hero metrics -->
+      <div class="bm-hero-grid">
+        <div class="bm-hero-card accent1">
+          <div class="bm-hero-num">8,027</div>
+          <div class="bm-hero-label">Peak SET RPS</div>
+          <div class="bm-hero-sub">Local Path · AOF+RDB disabled</div>
+        </div>
+        <div class="bm-hero-card bm-hero-warning">
+          <div class="bm-hero-num">537</div>
+          <div class="bm-hero-label">Longhorn SET RPS</div>
+          <div class="bm-hero-sub">AOF on · 375K keys loaded</div>
+        </div>
+        <div class="bm-hero-card accent3">
+          <div class="bm-hero-num">15×</div>
+          <div class="bm-hero-label">Degradation Factor</div>
+          <div class="bm-hero-sub">Longhorn+AOF vs local no-persist</div>
+        </div>
+      </div>
+
+      <!-- SET RPS chart -->
+      <div class="bm-chart-block">
+        <div class="bm-chart-title">SET Throughput RPS <span class="bm-chart-note">higher = better</span></div>
+        <div class="bm-bars">
+          <div class="bm-bar-row">
+            <div class="bm-bar-label bm-highlight">Local · AOF off</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-bm" style="--pct:100%"><span>7,696</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Local</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Local · AOF on (baseline)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-lng" style="--pct:16.6%"><span>1,275</span></div></div>
+            <div class="bm-bar-tag warn">⚠ Persist</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Local · AOF on (tuning 1)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-lng" style="--pct:16.2%"><span>1,251</span></div></div>
+            <div class="bm-bar-tag warn">⚠ Persist</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Local · AOF on (tuning 2)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-lng" style="--pct:16.2%"><span>1,248</span></div></div>
+            <div class="bm-bar-tag warn">⚠ Persist</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Longhorn · AOF on (empty)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-red" style="--pct:7.5%"><span>577</span></div></div>
+            <div class="bm-bar-tag danger">✗ Longhorn</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Longhorn · AOF on (375K keys)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-red" style="--pct:7.0%"><span>537</span></div></div>
+            <div class="bm-bar-tag danger">✗ Longhorn</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P99 latency chart -->
+      <div class="bm-chart-block">
+        <div class="bm-chart-title">SET p99 Latency (ms) <span class="bm-chart-note">lower = better</span></div>
+        <div class="bm-bars">
+          <div class="bm-bar-row">
+            <div class="bm-bar-label bm-highlight">Local · AOF off</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-bm" style="--pct:2.3%"><span>5.12 ms</span></div></div>
+            <div class="bm-bar-tag bare">⚙ Local</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Local · AOF on (baseline)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-lng" style="--pct:45.5%"><span>102.5 ms</span></div></div>
+            <div class="bm-bar-tag warn">⚠ Persist</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Local · AOF on (tuning 1)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-lng" style="--pct:47.1%"><span>105.9 ms</span></div></div>
+            <div class="bm-bar-tag warn">⚠ Persist</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Local · AOF on (t2 + 375K keys)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-lng" style="--pct:53.9%"><span>121.2 ms</span></div></div>
+            <div class="bm-bar-tag warn">⚠ Persist</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Longhorn · AOF on (375K keys)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-red" style="--pct:89.5%"><span>201.9 ms</span></div></div>
+            <div class="bm-bar-tag danger">✗ Longhorn</div>
+          </div>
+          <div class="bm-bar-row">
+            <div class="bm-bar-label">Longhorn · AOF on (empty)</div>
+            <div class="bm-bar-track"><div class="bm-bar fill-red" style="--pct:100%"><span>225.7 ms</span></div></div>
+            <div class="bm-bar-tag danger">✗ Longhorn</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Findings -->
+      <div class="bm-findings">
+        <div class="bm-finding">
+          <div class="bm-finding-icon">🔴</div>
+          <div>
+            <strong>Longhorn + AOF = architectural mismatch.</strong>
+            Max SET latency reached <strong>903 ms</strong> (p99: 201 ms) on Longhorn — distributed
+            replication latency stacks directly on top of fsync overhead. AOF must never ride on
+            network-replicated volumes.
+          </div>
+        </div>
+        <div class="bm-finding">
+          <div class="bm-finding-icon">🟡</div>
+          <div>
+            <strong>AOF on local NVMe: consistent but costly.</strong>
+            Even on fast local storage, AOF flush stalls dominate: SET p99 stays above 100 ms across
+            all tuning iterations. Configuration tuning alone cannot overcome the fsync wall.
+          </div>
+        </div>
+        <div class="bm-finding">
+          <div class="bm-finding-icon">🟢</div>
+          <div>
+            <strong>Recommended: split-persistence architecture.</strong>
+            Run the hot-path Redis instance with AOF disabled; maintain a secondary replica with
+            RDB-only snapshots for recovery. Delivers sub-5 ms p99 at 8K+ SET RPS while preserving
+            durability guarantees.
+          </div>
+        </div>
+      </div>
+
+      <!-- Article link -->
+      <div class="cs-article-link">
+        <span class="cs-article-icon">📝</span>
+        <div>
+          <div class="cs-article-label">Published on dev.to</div>
+          <a href="https://dev.to/ionehouten/redis-aof-distributed-storage-a-cautionary-benchmark-4jf0" target="_blank" rel="noopener" class="cs-article-title">Redis + AOF + Distributed Storage: A Cautionary Benchmark →</a>
+        </div>
+      </div>
+
+    </div><!-- /cs-modal-body -->
+  </div><!-- /cs-modal-box -->
+</div><!-- /modal-redis -->
+
+<div class="divider"></div>
+
 
 <!-- STACK -->
 <section id="stack" class="section-center">
@@ -522,7 +1111,7 @@
 <div class="divider"></div>
 
 <!-- CERTIFICATIONS -->
-<section id="certs">
+<section id="certs"  class="section-center">
   <div class="section-label">Credentials</div>
   <h2 class="section-title">Certifications & Course</h2>
   <div class="certs-row reveal">
@@ -707,6 +1296,7 @@
     </div>
   </div>
 </div>
+
 <script>
   // ── TYPEWRITER CONFIG ──
   const segments = [
@@ -794,6 +1384,34 @@
 
   window.addEventListener('scroll', checkNda, { passive: true });
   setTimeout(checkNda, 500);
+</script>
+<script>
+  // Case study modals
+  window.openModalCs = function(id) {
+    const m = document.getElementById(id);
+    if (!m) return;
+    m.classList.add('open');
+    document.body.classList.add('modal-open');
+    document.documentElement.classList.add('modal-open');
+    m.scrollTop = 0;
+    // Animate bars after open
+    setTimeout(() => {
+      m.querySelectorAll('.bm-bar').forEach(b => {
+        const pct = b.style.getPropertyValue('--pct');
+        b.style.setProperty('--pct', '0%');
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => { b.style.setProperty('--pct', pct); });
+        });
+      });
+    }, 50);
+  };
+
+  window.closeModalBg = function(e, el) {
+    if (e.target === el) { el.classList.remove('open'); document.body.classList.remove('modal-open'); document.documentElement.classList.remove('modal-open'); }
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { document.querySelectorAll('.cs-modal.open').forEach(m => { m.classList.remove('open'); document.body.classList.remove('modal-open'); document.documentElement.classList.remove('modal-open'); }); }
+  });
 </script>
 <script>
   // ─── PROJECT DATA ─────────────────────────────────────────────────────────────
@@ -1118,5 +1736,6 @@
     navLinks.forEach(a => { a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent)' : ''; });
   }, { passive: true });
 </script>
+
 </body>
 </html>
